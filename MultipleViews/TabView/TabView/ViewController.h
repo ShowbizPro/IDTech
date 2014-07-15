@@ -17,7 +17,7 @@ typedef enum {
 
 
 
-@interface ViewController : UIViewController <UIApplicationDelegate>{
+@interface ViewController : UIViewController <UIApplicationDelegate, UIWebViewDelegate>{
 
 int playerWins;
 int playerLosses;
@@ -36,6 +36,7 @@ int currentIndex;
     
     NSArray *UIColorArray;
     NSArray *RPS;
+    NSMutableArray *userArray;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *playerImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *compImageView;
@@ -61,6 +62,9 @@ int currentIndex;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIWebView *website;
 - (IBAction)goButton:(id)sender;
-
 - (IBAction)forwardButton:(id)sender;
+- (IBAction)ClearButton:(id)sender;
+
+- (IBAction)reloadButton:(id)sender;
+
 @end

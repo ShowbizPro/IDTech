@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TableViewController.h"
 
 @interface ViewController ()
 
@@ -21,6 +22,7 @@ Choice RPSC[]= {rock, paper, scissors};
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    userArray = [TableViewController getUserArray];
     // Do any additional setup after loading the view, typically from a nib.
     UIColorArray = [[NSArray alloc] initWithObjects:[UIColor blueColor], [UIColor brownColor], [UIColor blackColor], [UIColor purpleColor], [UIColor cyanColor],[UIColor darkGrayColor],[UIColor grayColor],[UIColor lightGrayColor],[UIColor magentaColor],[UIColor orangeColor],[UIColor redColor],[UIColor greenColor],nil];
     CountTime = 1;
@@ -37,7 +39,21 @@ Choice RPSC[]= {rock, paper, scissors};
     
     if(playerLosses >=10 && playerLosses > playerWins && playerLosses >playerTies){
     [alert show];
+        
+        
+        
+        
+    
     }
+    [self.website setDelegate:self];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)website {
+    
+    [self.textField setText:website.request.URL.absoluteString];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +62,7 @@ Choice RPSC[]= {rock, paper, scissors};
     // Dispose of any resources that can be recreated.
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle{
+- (UIStatusBarStyle)preferredStatusBarStyle{ 
     return UIStatusBarStyleLightContent;
 }
 
@@ -214,6 +230,15 @@ Choice RPSC[]= {rock, paper, scissors};
     
     
 }
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    NSString *urlString = self.textField.text;
+    urlString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSURL *url;
+    url = [NSURL URLWithString:[@"https://www.google.com/?gws_rd=ssl#q=" stringByAppendingString:urlString]];
+    NSURLRequest *urlRequest = [[NSURLRequest alloc]initWithURL:url];
+    
+    [self.website loadRequest:urlRequest];
+}
 -(void)setBgcolor{
     int randomColor = (int)0 + arc4random() % (12);
     [self.view setBackgroundColor: UIColorArray[randomColor]];
@@ -228,12 +253,21 @@ Choice RPSC[]= {rock, paper, scissors};
     }else {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", self.textField.text]];
     }
-    NSURLRequest *urlRequest = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:self.textField.text]];
+    [userArray addObject:self.textField.text];
+    NSURLRequest *urlRequest = [[NSURLRequest alloc]initWithURL:url];
     
     [self.website loadRequest:urlRequest];}
 
 - (IBAction)forwardButton:(id)sender {
     [self.website goForward];
+}
+
+- (IBAction)ClearButton:(id)sender {
+    [self.textField setText:@""];
+}
+
+- (IBAction)reloadButton:(id)sender {
+    [self.website reload];
 }
 
 - (IBAction)backButton:(id)sender {

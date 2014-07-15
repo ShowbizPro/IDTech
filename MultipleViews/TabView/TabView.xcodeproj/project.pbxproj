@@ -22,6 +22,8 @@
 		3F805CC4197570FC00BA9C02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F805CC2197570FC00BA9C02 /* InfoPlist.strings */; };
 		3F805CC6197570FC00BA9C02 /* TabViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F805CC5197570FC00BA9C02 /* TabViewTests.m */; };
 		3F805CDA1975818600BA9C02 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F805CD91975818600BA9C02 /* TabBarController.m */; };
+		3F805CDD19759DA400BA9C02 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F805CDC19759DA400BA9C02 /* TableViewController.m */; };
+		3F805CE019759E4F00BA9C02 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F805CDF19759E4F00BA9C02 /* UserCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		3F805CC5197570FC00BA9C02 /* TabViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewTests.m; sourceTree = "<group>"; };
 		3F805CD81975818600BA9C02 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		3F805CD91975818600BA9C02 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		3F805CDB19759DA400BA9C02 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		3F805CDC19759DA400BA9C02 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		3F805CDE19759E4F00BA9C02 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		3F805CDF19759E4F00BA9C02 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,10 @@
 				3F805CA9197570FC00BA9C02 /* AppDelegate.h */,
 				3F805CAA197570FC00BA9C02 /* AppDelegate.m */,
 				3F805CAC197570FC00BA9C02 /* Main.storyboard */,
+				3F805CDB19759DA400BA9C02 /* TableViewController.h */,
+				3F805CDC19759DA400BA9C02 /* TableViewController.m */,
+				3F805CDE19759E4F00BA9C02 /* UserCell.h */,
+				3F805CDF19759E4F00BA9C02 /* UserCell.m */,
 				3F805CD81975818600BA9C02 /* TabBarController.h */,
 				3F805CD91975818600BA9C02 /* TabBarController.m */,
 				3F805CAF197570FC00BA9C02 /* ViewController.h */,
@@ -257,6 +267,8 @@
 				3F805CB1197570FC00BA9C02 /* ViewController.m in Sources */,
 				3F805CDA1975818600BA9C02 /* TabBarController.m in Sources */,
 				3F805CAB197570FC00BA9C02 /* AppDelegate.m in Sources */,
+				3F805CDD19759DA400BA9C02 /* TableViewController.m in Sources */,
+				3F805CE019759E4F00BA9C02 /* UserCell.m in Sources */,
 				3F805CA7197570FC00BA9C02 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
