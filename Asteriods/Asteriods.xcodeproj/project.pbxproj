@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F00A1221976D55900E6ECB3 /* Spaceship.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F00A1211976D55900E6ECB3 /* Spaceship.m */; };
+		3F17CDBC1976F735005698F5 /* FallingRocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F17CDBB1976F735005698F5 /* FallingRocks.m */; };
 		3F39C5291976B72B0046F7E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F39C5281976B72B0046F7E6 /* Foundation.framework */; };
 		3F39C52B1976B72B0046F7E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F39C52A1976B72B0046F7E6 /* CoreGraphics.framework */; };
 		3F39C52D1976B72B0046F7E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F39C52C1976B72B0046F7E6 /* UIKit.framework */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		3F00A1201976D55900E6ECB3 /* Spaceship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spaceship.h; sourceTree = "<group>"; };
 		3F00A1211976D55900E6ECB3 /* Spaceship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spaceship.m; sourceTree = "<group>"; };
+		3F17CDBA1976F735005698F5 /* FallingRocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FallingRocks.h; path = ../FallingRocks.h; sourceTree = "<group>"; };
+		3F17CDBB1976F735005698F5 /* FallingRocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FallingRocks.m; path = ../FallingRocks.m; sourceTree = "<group>"; };
 		3F39C5251976B72B0046F7E6 /* Asteriods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asteriods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F39C5281976B72B0046F7E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F39C52A1976B72B0046F7E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +132,8 @@
 				3F39C53C1976B72B0046F7E6 /* Main.storyboard */,
 				3F39C53F1976B72B0046F7E6 /* ViewController.h */,
 				3F39C5401976B72B0046F7E6 /* ViewController.m */,
+				3F17CDBA1976F735005698F5 /* FallingRocks.h */,
+				3F17CDBB1976F735005698F5 /* FallingRocks.m */,
 				3F39C5421976B72B0046F7E6 /* MyScene.h */,
 				3F39C5431976B72B0046F7E6 /* MyScene.m */,
 				3F00A1201976D55900E6ECB3 /* Spaceship.h */,
@@ -272,6 +277,7 @@
 			files = (
 				3F39C5441976B72B0046F7E6 /* MyScene.m in Sources */,
 				3F00A1221976D55900E6ECB3 /* Spaceship.m in Sources */,
+				3F17CDBC1976F735005698F5 /* FallingRocks.m in Sources */,
 				3F39C5411976B72B0046F7E6 /* ViewController.m in Sources */,
 				3F39C53B1976B72B0046F7E6 /* AppDelegate.m in Sources */,
 				3F39C5371976B72B0046F7E6 /* main.m in Sources */,
