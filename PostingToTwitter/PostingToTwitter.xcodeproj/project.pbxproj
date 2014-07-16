@@ -21,6 +21,7 @@
 		3F39C5071976ADEF0046F7E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F39C4E91976ADEE0046F7E6 /* UIKit.framework */; };
 		3F39C50F1976ADEF0046F7E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F39C50D1976ADEF0046F7E6 /* InfoPlist.strings */; };
 		3F39C5111976ADEF0046F7E6 /* PostingToTwitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F39C5101976ADEF0046F7E6 /* PostingToTwitterTests.m */; };
+		3F39C51B1976AE610046F7E6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F39C51A1976AE610046F7E6 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		3F39C50C1976ADEF0046F7E6 /* PostingToTwitterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PostingToTwitterTests-Info.plist"; sourceTree = "<group>"; };
 		3F39C50E1976ADEF0046F7E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F39C5101976ADEF0046F7E6 /* PostingToTwitterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostingToTwitterTests.m; sourceTree = "<group>"; };
+		3F39C51A1976AE610046F7E6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F39C51B1976AE610046F7E6 /* Social.framework in Frameworks */,
 				3F39C4E81976ADEE0046F7E6 /* CoreGraphics.framework in Frameworks */,
 				3F39C4EA1976ADEE0046F7E6 /* UIKit.framework in Frameworks */,
 				3F39C4E61976ADEE0046F7E6 /* Foundation.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		3F39C4E41976ADEE0046F7E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F39C51A1976AE610046F7E6 /* Social.framework */,
 				3F39C4E51976ADEE0046F7E6 /* Foundation.framework */,
 				3F39C4E71976ADEE0046F7E6 /* CoreGraphics.framework */,
 				3F39C4E91976ADEE0046F7E6 /* UIKit.framework */,

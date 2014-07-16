@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3E266FF3-078D-4FB0-B646-373CE7E5D7C5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Asteriods</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C1BCF680-05FE-4B72-A499-1EB6CFA8128B</key>
+		<string>https://github.com/ShowbizPro/IDTech.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Asteriods/Asteriods.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C1BCF680-05FE-4B72-A499-1EB6CFA8128B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ShowbizPro/IDTech.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C1BCF680-05FE-4B72-A499-1EB6CFA8128B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C1BCF680-05FE-4B72-A499-1EB6CFA8128B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IDTech</string>
+		</dict>
+	</array>
+</dict>
+</plist>

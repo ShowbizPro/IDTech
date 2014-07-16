@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import <Social/Social.h>
 @interface ViewController ()
 
 @end
@@ -18,12 +18,24 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)tweetButton:(id)sender {
+    
+    SLComposeViewController *SLVC = [SLComposeViewController composeViewControllerForServiceType: SLServiceTypeTwitter];
+    
+    [self presentViewController:SLVC animated:true completion:^{nil;}];
+    
+    
 }
 
 @end

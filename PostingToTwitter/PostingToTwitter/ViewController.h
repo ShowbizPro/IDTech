@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import <Social/SocialDefines.h>
+
+
 @interface ViewController : UIViewController
+
+- (IBAction)tweetButton:(id)sender;
+//@property (nonatomic, strong) SLComposeViewController *SLVC;
+
 
 @end

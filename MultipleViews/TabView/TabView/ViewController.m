@@ -17,7 +17,22 @@
 
 Choice RPSC[]= {rock, paper, scissors};
 
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    
+    
+    
+    
+    
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    NSURL *home = [NSURL URLWithString:self.homePage.text];
+    [userDefaults setURL:home forKey:@"homepage" ];
+    
+    [textField resignFirstResponder];
+    return true;
+}
 
 - (void)viewDidLoad
 {
@@ -32,21 +47,44 @@ Choice RPSC[]= {rock, paper, scissors};
     [self.Choices setImage:[UIImage imageNamed:RPS[currentIndex]]];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome!"
                                                     message:@"Enjoy the app!" delegate:self cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"Done", @"", nil];
+                                          otherButtonTitles:@"Done", nil];
+    
+    self.textField.delegate = self;
+    self.homePage.delegate = self;
     
     
     
     
     if(playerLosses >=10 && playerLosses > playerWins && playerLosses >playerTies){
     [alert show];
-        
-        
-        
-        
+        }
     
-    }
+    
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSURL *mainpage = [userDefaults URLForKey:@"homepage"];
+    
+        if(mainpage){
+        [self.textField setText:mainpage.absoluteString];
+            [self.homePage setText:mainpage.absoluteString];
+        [self goButton:(nil)];
+            
+        [userDefaults synchronize];
+        /*NSURLRequest *urlRequest = [[NSURLRequest alloc]initWithURL:mainpage];
+            
+        [self.website loadRequest:urlRequest];*/
+        
+        }
+    
     [self.website setDelegate:self];
 }
+
+
+
+
+
+
+
 
 - (void)webViewDidFinishLoad:(UIWebView *)website {
     
@@ -85,56 +123,91 @@ Choice RPSC[]= {rock, paper, scissors};
             CompChoice = scissors;
             break;
     }
+    
+
 }
 - (void)compareChoices {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (PlayerChoice == rock) {
         if (CompChoice == paper) {
             playerLosses++;
-            [self.losses setText:[NSString stringWithFormat:@"%d", playerLosses]];
+            //[self.losses setText:[NSString stringWithFormat:@"%d", playerLosses]];
             [self.result setText:@"Wow you're bad!"];
+            [userDefaults setInteger:playerLosses forKey:@"player losses"];
         }else if (CompChoice == scissors) {
             playerWins++;
-            [self.wins setText:[NSString stringWithFormat:@"%d", playerWins]];
+            //[self.wins setText:[NSString stringWithFormat:@"%d", playerWins]];
             [self.result setText:@"Congrats you don't suck!"];
+            [userDefaults setInteger:playerWins forKey:@"player wins"];
         }else {
             playerTies++;
-            [self.ties setText:[NSString stringWithFormat:@"%d", playerTies]];
+            //[self.ties setText:[NSString stringWithFormat:@"%d", playerTies]];
             [self.result setText:@"Both you and the computer are bad!"];
+            [userDefaults setInteger:playerTies forKey:@"player ties"];
         }
     }
     else if (PlayerChoice == paper) {
         if (CompChoice == scissors) {
             playerLosses++;
-            [self.losses setText:[NSString stringWithFormat:@"%d", playerLosses]];
+            //[self.losses setText:[NSString stringWithFormat:@"%d", playerLosses]];
             [self.result setText:@"Wow you're bad!"];
+            [userDefaults setInteger:playerLosses forKey:@"player losses"];
         }else if (CompChoice == rock) {
             playerWins++;
-            [self.wins setText:[NSString stringWithFormat:@"%d", playerWins]];
+            //[self.wins setText:[NSString stringWithFormat:@"%d", playerWins]];
             [self.result setText:@"Congrats you don't suck!"];
+            [userDefaults setInteger:playerWins forKey:@"player wins"];
         }else {
             playerTies++;
-            [self.ties setText:[NSString stringWithFormat:@"%d", playerTies]];
+            //[self.ties setText:[NSString stringWithFormat:@"%d", playerTies]];
             [self.result setText:@"Both you and the computer are bad!"];
+            
+            [userDefaults setInteger:playerTies forKey:@"player ties"];
         }
     }
     else if (PlayerChoice == scissors) {
         if (CompChoice == rock) {
             playerLosses++;
-            [self.losses setText:[NSString stringWithFormat:@"%d", playerLosses]];
+            //[self.losses setText:[NSString stringWithFormat:@"%d", playerLosses]];
             [self.result setText:@"Wow you're bad!"];
+            [userDefaults setInteger:playerLosses forKey:@"player losses"];
         }else if (CompChoice == paper) {
             playerWins++;
-            [self.wins setText:[NSString stringWithFormat:@"%d", playerWins]];
+            //[self.wins setText:[NSString stringWithFormat:@"%d", playerWins]];
             [self.result setText:@"Congrats you don't suck!"];
+            [userDefaults setInteger:playerWins forKey:@"player wins"];
         }else {
             playerTies++;
-            [self.ties setText:[NSString stringWithFormat:@"%d", playerTies]];
+            //[self.ties setText:[NSString stringWithFormat:@"%d", playerTies]];
             [self.result setText:@"Both you and the computer are bad!"];
+            
+            [userDefaults setInteger:playerTies forKey:@"player ties"];
         }
     }
     
     
+    
+    NSInteger losses = [userDefaults integerForKey:@"player losses"];
+    NSInteger wins = [userDefaults integerForKey:@"player wins"];
+    NSInteger ties = [userDefaults integerForKey:@"player ties"];
+    
+    if (losses) {
+        playerLosses = (int)losses;
+        [self.losses setText:[NSString stringWithFormat:@"%d", playerLosses]];
+    }
+    if (wins) {
+        playerWins = (int)losses;
+        [self.wins setText:[NSString stringWithFormat:@"%d", playerWins]];
+    }
+    if (ties) {
+        playerTies = (int)losses;
+        [self.ties setText:[NSString stringWithFormat:@"%d", playerTies]];
+    }
+    [userDefaults synchronize];
+    
+    
 }
+
 
 
 
@@ -244,6 +317,7 @@ Choice RPSC[]= {rock, paper, scissors};
     [self.view setBackgroundColor: UIColorArray[randomColor]];
 }
 
+
 - (IBAction)goButton:(id)sender {
     NSString *urlString = self.textField.text;
     NSURL *url;
@@ -253,17 +327,29 @@ Choice RPSC[]= {rock, paper, scissors};
     }else {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", self.textField.text]];
     }
+    if(self.textField.text == nil){
+        //[userArray addObject:self.homePage.text];
+    }
+    else{
     [userArray addObject:self.textField.text];
+    }
+    
+    
     NSURLRequest *urlRequest = [[NSURLRequest alloc]initWithURL:url];
     
-    [self.website loadRequest:urlRequest];}
+    [self.website loadRequest:urlRequest];
+}
 
 - (IBAction)forwardButton:(id)sender {
     [self.website goForward];
 }
 
 - (IBAction)ClearButton:(id)sender {
-    [self.textField setText:@""];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSURL *mainpage = [userDefaults URLForKey:@"homepage"];
+    [self.textField setText:mainpage.absoluteString];
+    [self goButton:(nil)];
+    [userDefaults synchronize];
 }
 
 - (IBAction)reloadButton:(id)sender {

@@ -17,7 +17,7 @@ typedef enum {
 
 
 
-@interface ViewController : UIViewController <UIApplicationDelegate, UIWebViewDelegate>{
+@interface ViewController : UIViewController <UIApplicationDelegate, UIWebViewDelegate, UITextFieldDelegate>{
 
 int playerWins;
 int playerLosses;
@@ -66,5 +66,10 @@ int currentIndex;
 - (IBAction)ClearButton:(id)sender;
 
 - (IBAction)reloadButton:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *homePage;
+
+
 
 @end
