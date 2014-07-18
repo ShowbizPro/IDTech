@@ -34,7 +34,10 @@
 	localNAArray = [Global getIGNNAArray];
     localEUArray = [Global getIGNEUArray];
     
-	PlayerStats *PS = localNAArray[0];
+    
+    FirstViewController *FVC = [[FirstViewController alloc]init];
+    
+	PlayerStats *PS = localNAArray[FVC.indexSelection];
     //NA = true;
     
     

@@ -18,6 +18,7 @@
 @property (nonatomic, weak) NSString *avgGoldPerMin;
 @property (nonatomic, weak) NSString *avgTotalGold; 
 @property (nonatomic, weak) NSString *bio;
+@property (nonatomic, weak) UIImageView *photo;
 
 
 @end

@@ -5,20 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F88B0CCB-5B92-4BBD-9105-5D980F987931</string>
+	<string>435FD3C4-6F58-4B62-9DA3-DF89A55E5972</string>
 	<key>IDESourceControlProjectName</key>
-	<string>TabView</string>
+	<string>LCS Players</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>AEE78E73-8C4B-48C3-B653-8BC85CA9CF4E</key>
 		<string>https://github.com/ShowbizPro/IDTech.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MultipleViews/TabView/TabView.xcodeproj/project.xcworkspace</string>
+	<string>LCS Players/LCS Players.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>AEE78E73-8C4B-48C3-B653-8BC85CA9CF4E</key>
-		<string>../../../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ShowbizPro/IDTech.git</string>

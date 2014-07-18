@@ -25,6 +25,7 @@
 		3F9B90541978059400632F13 /* PlayerStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B90531978059400632F13 /* PlayerStats.m */; };
 		3F9B905719783E7700632F13 /* ViewControllerInfoPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B905619783E7700632F13 /* ViewControllerInfoPage.m */; };
 		3F9B905A1978482500632F13 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B90591978482500632F13 /* Global.m */; };
+		3F9B905D1979532700632F13 /* GrabData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B905C1979532700632F13 /* GrabData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		3F9B905619783E7700632F13 /* ViewControllerInfoPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerInfoPage.m; sourceTree = "<group>"; };
 		3F9B90581978482500632F13 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		3F9B90591978482500632F13 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
+		3F9B905B1979532700632F13 /* GrabData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrabData.h; sourceTree = "<group>"; };
+		3F9B905C1979532700632F13 /* GrabData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrabData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 				3F9B90521978059400632F13 /* PlayerStats.h */,
 				3F9B905519783E7700632F13 /* ViewControllerInfoPage.h */,
 				3F9B905619783E7700632F13 /* ViewControllerInfoPage.m */,
+				3F9B905B1979532700632F13 /* GrabData.h */,
+				3F9B905C1979532700632F13 /* GrabData.m */,
 				3F9B90531978059400632F13 /* PlayerStats.m */,
 				3F17CE0719771D7A005698F5 /* UserCell.h */,
 				3F17CE0819771D7A005698F5 /* UserCell.m */,
@@ -272,6 +277,7 @@
 				3F17CDDA19771356005698F5 /* AppDelegate.m in Sources */,
 				3F17CDE019771356005698F5 /* FirstViewController.m in Sources */,
 				3F17CE0919771D7A005698F5 /* UserCell.m in Sources */,
+				3F9B905D1979532700632F13 /* GrabData.m in Sources */,
 				3F9B905A1978482500632F13 /* Global.m in Sources */,
 				3F9B90541978059400632F13 /* PlayerStats.m in Sources */,
 				3F17CDD619771356005698F5 /* main.m in Sources */,

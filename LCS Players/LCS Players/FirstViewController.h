@@ -12,7 +12,7 @@
 @interface FirstViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
 	bool NA;
     NSMutableArray *localNAArray;
-     NSMutableArray *localEUArray;
+    NSMutableArray *localEUArray;
 }
 
 - (IBAction)Segment:(id)sender;
@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *outSegment;
 
 @property (weak, nonatomic) IBOutlet UITableView *dataTable;
+
+
+@property (nonatomic) NSInteger indexSelection;
 
 + (NSMutableArray *)getIGNArray;
 
