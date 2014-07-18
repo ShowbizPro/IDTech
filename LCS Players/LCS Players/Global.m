@@ -7,6 +7,7 @@
 //
 
 #import "Global.h"
+#import "FirstViewController.h"
 
 @implementation Global
 static NSMutableArray* IGNNAArray;
@@ -26,4 +27,14 @@ static NSMutableArray* IGNEUArray;
     }
     return IGNEUArray;
 }
+
+static FirstViewController* FVC;
++(FirstViewController*)getFVC{
+    
+    return FVC;
+}
++(void)setFVC:(FirstViewController*)fvc{
+    FVC = fvc;
+}
+
 @end

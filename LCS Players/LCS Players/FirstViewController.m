@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "Global.h"
 #import "PlayerStats.h"
+#import "GrabData.h"
 @interface FirstViewController ()
 
 @end
@@ -19,10 +20,15 @@
 	[super viewDidLoad];
 
 	PlayerStats *PS = [[PlayerStats alloc]init];
-
+    PlayerStats *PS2 = [[PlayerStats alloc]init];
 	localNAArray = [Global getIGNNAArray];
 	localEUArray = [Global getIGNEUArray];
-
+    
+    [Global setFVC:self];
+    
+    
+    GrabData *g = [[GrabData alloc] init];
+    
 	PS.ign = @"PLAYER 1";
 	PS.name = @"Loudy";
 	PS.team = @"Cloud10";
@@ -32,9 +38,23 @@
 	PS.avgTotalGold = @"7k";
 	//PS.photo = PS.photo setImage:[UIImage imageNamed:<#(NSString *)#>;
 	PS.bio = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+    
+    
+    
+    PS2.ign = @"PLAYER 2";
+	PS2.name = @"FallingRockios";
+	PS2.team = @"Cloud10";
+	PS2.position = @"JUNG";
+	PS2.avgKDA = @"5.2";
+	PS2.avgGoldPerMin = @"300";
+	PS2.avgTotalGold = @"15k";
+	//PS.photo = PS.photo setImage:[UIImage imageNamed:<#(NSString *)#>;
+	PS2.bio = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
 
 	[localNAArray addObject:PS];
+    [localNAArray addObject:PS2];
+
 	NA = true;
 	// Do any additional setup after loading the view, typically from a nib.
 	[self.dataTable setDelegate:self];
@@ -66,7 +86,8 @@
 
 	ViewControllerInfoPage *VCIP = [self.storyboard instantiateViewControllerWithIdentifier:@"infoPage"];
 	[self.navigationController pushViewController:VCIP animated:YES];
-    self.indexSelection = indexPath.section;
+    self.indexSelection = indexPath.row;
+    
   
 
 

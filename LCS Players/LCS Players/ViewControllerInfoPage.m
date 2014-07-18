@@ -35,7 +35,7 @@
     localEUArray = [Global getIGNEUArray];
     
     
-    FirstViewController *FVC = [[FirstViewController alloc]init];
+    FirstViewController *FVC = [Global getFVC];
     
 	PlayerStats *PS = localNAArray[FVC.indexSelection];
     //NA = true;

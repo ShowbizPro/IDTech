@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FirstViewController.h"
 
 @interface Global : NSObject
 +(NSMutableArray*)getIGNNAArray;
 +(NSMutableArray*)getIGNEUArray;
+
++(void)setFVC:(FirstViewController*)fvc;
++(FirstViewController*)getFVC;
+
 @end
