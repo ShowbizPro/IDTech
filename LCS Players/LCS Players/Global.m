@@ -8,6 +8,8 @@
 
 #import "Global.h"
 #import "FirstViewController.h"
+#import "PlayerStats.h"
+#import "GrabData.h"
 
 @implementation Global
 static NSMutableArray* IGNNAArray;
@@ -36,5 +38,8 @@ static FirstViewController* FVC;
 +(void)setFVC:(FirstViewController*)fvc{
     FVC = fvc;
 }
+
+
+
 
 @end

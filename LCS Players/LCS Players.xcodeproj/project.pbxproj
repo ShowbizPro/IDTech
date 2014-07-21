@@ -26,6 +26,10 @@
 		3F9B905719783E7700632F13 /* ViewControllerInfoPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B905619783E7700632F13 /* ViewControllerInfoPage.m */; };
 		3F9B905A1978482500632F13 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B90591978482500632F13 /* Global.m */; };
 		3F9B905D1979532700632F13 /* GrabData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B905C1979532700632F13 /* GrabData.m */; };
+		3F9B908C19798FF100632F13 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9B908B19798FF100632F13 /* libxml2.dylib */; };
+		3F9B90941979922B00632F13 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B908F1979922B00632F13 /* TFHpple.m */; };
+		3F9B90951979922B00632F13 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B90911979922B00632F13 /* TFHppleElement.m */; };
+		3F9B90961979922B00632F13 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B90931979922B00632F13 /* XPathQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,14 @@
 		3F9B90591978482500632F13 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		3F9B905B1979532700632F13 /* GrabData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrabData.h; sourceTree = "<group>"; };
 		3F9B905C1979532700632F13 /* GrabData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrabData.m; sourceTree = "<group>"; };
+		3F9B908919798F7B00632F13 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		3F9B908B19798FF100632F13 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		3F9B908E1979922B00632F13 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		3F9B908F1979922B00632F13 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		3F9B90901979922B00632F13 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		3F9B90911979922B00632F13 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		3F9B90921979922B00632F13 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		3F9B90931979922B00632F13 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F9B908C19798FF100632F13 /* libxml2.dylib in Frameworks */,
 				3F17CDCC19771356005698F5 /* CoreGraphics.framework in Frameworks */,
 				3F17CDCE19771356005698F5 /* UIKit.framework in Frameworks */,
 				3F17CDCA19771356005698F5 /* Foundation.framework in Frameworks */,
@@ -116,6 +129,8 @@
 		3F17CDC819771356005698F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F9B908B19798FF100632F13 /* libxml2.dylib */,
+				3F9B908919798F7B00632F13 /* libxml2.2.dylib */,
 				3F17CDC919771356005698F5 /* Foundation.framework */,
 				3F17CDCB19771356005698F5 /* CoreGraphics.framework */,
 				3F17CDCD19771356005698F5 /* UIKit.framework */,
@@ -127,6 +142,7 @@
 		3F17CDCF19771356005698F5 /* LCS Players */ = {
 			isa = PBXGroup;
 			children = (
+				3F9B908D197991F300632F13 /* hpple */,
 				3F17CDD819771356005698F5 /* AppDelegate.h */,
 				3F17CDD919771356005698F5 /* AppDelegate.m */,
 				3F17CDDB19771356005698F5 /* Main.storyboard */,
@@ -175,6 +191,19 @@
 				3F17CDF419771356005698F5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F9B908D197991F300632F13 /* hpple */ = {
+			isa = PBXGroup;
+			children = (
+				3F9B908E1979922B00632F13 /* TFHpple.h */,
+				3F9B908F1979922B00632F13 /* TFHpple.m */,
+				3F9B90901979922B00632F13 /* TFHppleElement.h */,
+				3F9B90911979922B00632F13 /* TFHppleElement.m */,
+				3F9B90921979922B00632F13 /* XPathQuery.h */,
+				3F9B90931979922B00632F13 /* XPathQuery.m */,
+			);
+			name = hpple;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +307,9 @@
 				3F17CDE019771356005698F5 /* FirstViewController.m in Sources */,
 				3F17CE0919771D7A005698F5 /* UserCell.m in Sources */,
 				3F9B905D1979532700632F13 /* GrabData.m in Sources */,
+				3F9B90961979922B00632F13 /* XPathQuery.m in Sources */,
+				3F9B90951979922B00632F13 /* TFHppleElement.m in Sources */,
+				3F9B90941979922B00632F13 /* TFHpple.m in Sources */,
 				3F9B905A1978482500632F13 /* Global.m in Sources */,
 				3F9B90541978059400632F13 /* PlayerStats.m in Sources */,
 				3F17CDD619771356005698F5 /* main.m in Sources */,
@@ -334,7 +366,7 @@
 		3F17CDF919771356005698F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -363,8 +395,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/libxml2,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "-lxml2";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -372,7 +409,7 @@
 		3F17CDFA19771356005698F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -408,6 +445,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LCS Players/LCS Players-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "LCS Players/LCS Players-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

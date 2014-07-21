@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PlayerStats.h"
 
-@interface GrabData : NSObject
+@interface GrabData : NSObject{
+    
+    
+}
 
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *url;
++ (PlayerStats*)getData:(NSString*)playerName;
 @end

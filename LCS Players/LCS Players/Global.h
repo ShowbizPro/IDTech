@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FirstViewController.h"
+#import "GrabData.h"
 
 @interface Global : NSObject
 +(NSMutableArray*)getIGNNAArray;
@@ -15,5 +16,10 @@
 
 +(void)setFVC:(FirstViewController*)fvc;
 +(FirstViewController*)getFVC;
+
+
++(GrabData*)getGD;
++(void)setGD:(GrabData*)gd;
+
 
 @end

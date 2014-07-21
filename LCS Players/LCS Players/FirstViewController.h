@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "UserCell.h"
 #import "ViewControllerInfoPage.h"
+#import "PlayerStats.h"
+#import "GrabData.h"
 @interface FirstViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
-	bool NA;
+	
     NSMutableArray *localNAArray;
     NSMutableArray *localEUArray;
+    GrabData *localGrabData;
 }
 
 - (IBAction)Segment:(id)sender;
@@ -24,6 +27,8 @@
 
 
 @property (nonatomic) NSInteger indexSelection;
+
+@property (nonatomic) bool NA;
 
 + (NSMutableArray *)getIGNArray;
 
