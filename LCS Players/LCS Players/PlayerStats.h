@@ -10,15 +10,15 @@
 
 @interface PlayerStats : NSObject
 
-@property (nonatomic, weak) NSString *name;
-@property (nonatomic, weak) NSString *ign;
-@property (nonatomic, weak) NSString *team;
-@property (nonatomic, weak) NSString *position;
-@property (nonatomic, weak) NSString *avgKDA;
-@property (nonatomic, weak) NSString *avgGoldPerMin;
-@property (nonatomic, weak) NSString *avgTotalGold; 
-@property (nonatomic, weak) NSString *bio;
-@property (nonatomic, weak) UIImageView *photo;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *ign;
+@property (nonatomic, strong) NSString *team;
+@property (nonatomic, strong) NSString *position;
+@property (nonatomic, strong) NSString *avgKDA;
+@property (nonatomic, strong) NSString *avgGoldPerMin;
+@property (nonatomic, strong) NSString *avgTotalGold;
+@property (nonatomic, strong) NSString *bio;
+@property (nonatomic, strong) UIImageView *photo;
 
 
 @end

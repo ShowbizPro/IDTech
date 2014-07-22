@@ -17,4 +17,5 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *url;
 + (PlayerStats*)getData:(NSString*)playerName;
++(PlayerStats*)getEUData:(NSString*)playerName;
 @end

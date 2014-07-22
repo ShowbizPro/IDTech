@@ -28,9 +28,11 @@
 
 @property (nonatomic) NSInteger indexSelection;
 
-@property (nonatomic) bool NA;
 
-+ (NSMutableArray *)getIGNArray;
+@property (nonatomic) NSArray *playerNamers;
+@property (nonatomic) NSArray *playerNamersEU;
+
+@property (nonatomic) bool NA;
 
 
 @property (weak, nonatomic) ViewControllerInfoPage *VCIP;

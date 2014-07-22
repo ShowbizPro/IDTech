@@ -24,120 +24,38 @@
 	localEUArray = [Global getIGNEUArray];
 
 	[Global setFVC:self];
-	PlayerStats *dexter=[GrabData getData:@"dexter-0"];
-    [localNAArray addObject:dexter];
-    
-    PlayerStats *meteos=[GrabData getData:@"meteos"];
-    [localNAArray addObject:meteos];
-    
-    PlayerStats *noname=[GrabData getData:@"noname"];
-    [localNAArray addObject:noname];
-    
-    PlayerStats *amazing=[GrabData getData:@"amazing"];
-    [localNAArray addObject:amazing];
-    
-    PlayerStats *crumbzz=[GrabData getData:@"crumbzz"];
-    [localNAArray addObject:crumbzz];
-    
-    PlayerStats *helios=[GrabData getData:@"helios"];
-    [localNAArray addObject:helios];
-    
-    PlayerStats *kez=[GrabData getData:@"kez"];
-    [localNAArray addObject:kez];
-    
-    PlayerStats *IWD=[GrabData getData:@"iwilldominate"];
-    [localNAArray addObject:IWD];
-    
-    PlayerStats *dlift=[GrabData getData:@"doublelift"];
-    [localNAArray addObject:dlift];
-    
-    PlayerStats *sneaky=[GrabData getData:@"sneaky"];
-    [localNAArray addObject:sneaky];
-    
-    PlayerStats *vasilii=[GrabData getData:@"vasilii"];
-    [localNAArray addObject:vasilii];
-    
-    PlayerStats *turtle=[GrabData getData:@"wildturtle"];
-    [localNAArray addObject:turtle];
 
-    PlayerStats *qtpie=[GrabData getData:@"imaqtpie"];
-    [localNAArray addObject:qtpie];
-    
-    PlayerStats *altec=[GrabData getData:@"altec"];
-    [localNAArray addObject:altec];
-    
-    PlayerStats *rxl=[GrabData getData:@"robertxlee"];
-    [localNAArray addObject:rxl];
-    
-    PlayerStats *cop=[GrabData getData:@"cop"];
-    [localNAArray addObject:cop];
-    
-
-    
-    
-    
-    
-    
-    
-    
-   
-
-	/*localPS.ign = @"PLAYER 1";	localPS.name = @"Loudy";
-	    localPS.team = @"Cloud10";
-	    localPS.position = @"APC";
-	    localPS.avgKDA = @"7.7";
-	    localPS.avgGoldPerMin = @"500";
-	    localPS.avgTotalGold = @"7k";
-	    //PS.photo = PS.photo setImage:[UIImage imageNamed:<#(NSString *)#>;
-	    localPS.bio = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";*/
-
-
-
-	/* localPS2.ign = @"PLAYER 2";
-	    localPS2.name = @"FallingRockios";
-	    localPS2.team = @"Cloud10";
-	    localPS2.position = @"JUNG";
-	    localPS2.avgKDA = @"5.2";
-	    localPS2.avgGoldPerMin = @"300";
-	    localPS2.avgTotalGold = @"15k";
-	    //PS.photo = PS.photo setImage:[UIImage imageNamed:<#(NSString *)#>;
-	    localPS2.bio = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
-
-
-
-	   localPS3.ign = @"PLAYER 1";
-	    localPS3.name = @"Toaden";
-	    localPS3.team = @"Hord";
-	    localPS3.position = @"Mid";
-	    localPS3.avgKDA = @"7.7";
-	    localPS3.avgGoldPerMin = @"500";
-	    localPS3.avgTotalGold = @"7k";
-	    //PS.photo = PS.photo setImage:[UIImage imageNamed:<#(NSString *)#>;
-	    localPS3.bio = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
-
-
-
-
-
-
-
-
-
-
-
-
-	    [localNAArray addObject:localPS];
-	   [localNAArray addObject:localPS2];
-
-	   [localEUArray addObject:localPS3];*/
-    
-    
-   
-    
-
-	//[localNAArray addObject:localGrabData.PS];
-
+	self.playerNamers = [[NSArray alloc] initWithObjects:@"dexter-0", @"meteos",@"noname",@"amazing",@"crumbzz",@"helios",@"kez",@"iwilldominate",@"doublelift",@"sneaky",@"vasilii",@"wildturtle",@"imaqtpie",@"altec",@"robertxlee",@"cop",@"link", @"hai", @"xiaoweixiao", @"bjergsen", @"shiphtur", @"pobelter", @"pr0lly", @"voyboy", @"aphromoo", @"lemonnation", @"mor", @"gleeb", @"kiwikid", @"krepo", @"bubbadub", @"xpecial", @"seraph", @"balls", @"ackerman", @"dyrus", @"zion-spartan", @"innox-0", @"westrice", @"quas", nil];
 	self.NA = true;
+
+	self.playerNamersEU = [[NSArray alloc] initWithObjects: @"shook", @"cyanide",@"kottenx", @"jankos",@"svenskeren", @"impaler", @"airwaks", @"diamond", @"tabzz", @"rekkles", @"creaton", @"celaver-0", @"candypanda", @"mrrallez", @"woolite", @"genja", @"froggen", @"xpeke", @"kerp", @"overpow",@"jesiz", @"selfie", @"cowtard-0", @"niq-0", @"nyph", @"yellowstar", @"jree", @"vander",@"nrated", @"kasing",@"unlimited-0", @"edward", @"wickd",@"soaz",@"kev1n",@"xaxus",@"fredy122",@"mimer", @"youngbuck-0", @"fomko",nil];
+
+
+	for (int i=0; i < self.playerNamers.count; i++) {
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+		                       [GrabData getData:self.playerNamers[i]];
+		                       if(i == self.playerNamers.count -1) {
+		                               [self.dataTable performSelectorOnMainThread:@selector(reloadData)
+		                                withObject:nil waitUntilDone:YES];
+				       }
+			       });
+	}
+
+
+	for(int i=0; i<self.playerNamersEU.count; i++) {
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+		                       [GrabData getEUData:self.playerNamersEU[i]];
+		                       if(i == self.playerNamers.count -1) {
+		                               [self.dataTable performSelectorOnMainThread:@selector(reloadData)
+		                                withObject:nil waitUntilDone:YES];
+				       }
+			       });
+	}
+
+
+
+
+
 	// Do any additional setup after loading the view, typically from a nib.
 	[self.dataTable setDelegate:self];
 	[self.dataTable setDataSource:self];
@@ -167,8 +85,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 	ViewControllerInfoPage *VCIP = [self.storyboard instantiateViewControllerWithIdentifier:@"infoPage"];
-	[self.navigationController pushViewController:VCIP animated:YES];
 	self.indexSelection = indexPath.row;
+	[self.navigationController pushViewController:VCIP animated:YES];
+
 
 
 

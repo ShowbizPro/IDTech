@@ -15,7 +15,7 @@
 static NSMutableArray* IGNNAArray;
 +(NSMutableArray*)getIGNNAArray{
     if(IGNNAArray == nil){
-        IGNNAArray = [[NSMutableArray alloc] init];
+        IGNNAArray = [[NSMutableArray alloc] init];//WithCapacity:40];
     }
     return IGNNAArray;
 }
@@ -25,7 +25,7 @@ static NSMutableArray* IGNNAArray;
 static NSMutableArray* IGNEUArray;
 +(NSMutableArray*)getIGNEUArray{
     if(IGNEUArray == nil){
-        IGNEUArray = [[NSMutableArray alloc] init];
+        IGNEUArray = [[NSMutableArray alloc] init];//WithCapacity:40];
     }
     return IGNEUArray;
 }

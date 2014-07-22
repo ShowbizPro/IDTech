@@ -18,8 +18,6 @@
 +(FirstViewController*)getFVC;
 
 
-+(GrabData*)getGD;
-+(void)setGD:(GrabData*)gd;
 
 
 @end

@@ -23,8 +23,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *bioTitleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 
-@property (strong, nonatomic) NSMutableArray *IGNNAArray;
-@property (strong, nonatomic) NSMutableArray *IGNEUArray;
-
 
 @end
