@@ -41,5 +41,10 @@ static FirstViewController* FVC;
 
 
 
+static NSLock *nalock;
++(NSLock*)getNaLock{
+    return nalock;
+}
+
 
 @end

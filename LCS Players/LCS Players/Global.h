@@ -17,6 +17,8 @@
 +(void)setFVC:(FirstViewController*)fvc;
 +(FirstViewController*)getFVC;
 
++(NSLock*)getNaLock;
+
 
 
 

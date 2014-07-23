@@ -32,6 +32,9 @@
 @property (nonatomic) NSArray *playerNamers;
 @property (nonatomic) NSArray *playerNamersEU;
 
+
+
+
 @property (nonatomic) bool NA;
 
 

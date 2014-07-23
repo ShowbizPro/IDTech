@@ -25,6 +25,11 @@
 
 	[Global setFVC:self];
 
+
+
+
+
+
 	self.playerNamers = [[NSArray alloc] initWithObjects:@"dexter-0", @"meteos",@"noname",@"amazing",@"crumbzz",@"helios",@"kez",@"iwilldominate",@"doublelift",@"sneaky",@"vasilii",@"wildturtle",@"imaqtpie",@"altec",@"robertxlee",@"cop",@"link", @"hai", @"xiaoweixiao", @"bjergsen", @"shiphtur", @"pobelter", @"pr0lly", @"voyboy", @"aphromoo", @"lemonnation", @"mor", @"gleeb", @"kiwikid", @"krepo", @"bubbadub", @"xpecial", @"seraph", @"balls", @"ackerman", @"dyrus", @"zion-spartan", @"innox-0", @"westrice", @"quas", nil];
 	self.NA = true;
 
@@ -34,10 +39,6 @@
 	for (int i=0; i < self.playerNamers.count; i++) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
 		                       [GrabData getData:self.playerNamers[i]];
-		                       if(i == self.playerNamers.count -1) {
-		                               [self.dataTable performSelectorOnMainThread:@selector(reloadData)
-		                                withObject:nil waitUntilDone:YES];
-				       }
 			       });
 	}
 
@@ -45,24 +46,18 @@
 	for(int i=0; i<self.playerNamersEU.count; i++) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
 		                       [GrabData getEUData:self.playerNamersEU[i]];
-		                       if(i == self.playerNamers.count -1) {
-		                               [self.dataTable performSelectorOnMainThread:@selector(reloadData)
-		                                withObject:nil waitUntilDone:YES];
-				       }
+                
 			       });
 	}
 
-
-
-
-
+	//[localNAArray sortUsingSelector:@selector()];
+	//[localEUArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self.dataTable setDelegate:self];
 	[self.dataTable setDataSource:self];
 
 	[self.dataTable reloadData];
 }
-
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
@@ -97,8 +92,10 @@
 	static NSString *CellIdentifier = @"userCell";
 	UserCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 	if (self.NA) {
+        [[Global getNaLock] lock];
 		PlayerStats *PSNA = [localNAArray objectAtIndex:[indexPath row]];
 		[cell.IGNLabel setText:PSNA.ign];
+        [[Global getNaLock] unlock];
 	}
 	else {
 		PlayerStats *PSEU = [localEUArray objectAtIndex:[indexPath row]];

@@ -35,7 +35,6 @@
     localEUArray = [Global getIGNEUArray];
     PlayerStats *PS ;
     
-    
     FirstViewController *FVC = [Global getFVC];
     if(FVC.NA){
       PS   = localNAArray[FVC.indexSelection];
@@ -56,6 +55,7 @@
     [self.avgGPMLabel setText:PS.avgGoldPerMin];
     [self.avgGPTLabel setText:PS.avgTotalGold];
     [self.bioTextView setText:PS.bio];
+    [self.PlayerPicture setImage:PS.photo];
     
     
     
