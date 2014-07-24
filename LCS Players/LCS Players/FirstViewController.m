@@ -26,9 +26,11 @@
 	[Global setFVC:self];
 
 
-
-
-
+    UIImageView *bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+    bgImage.contentMode = UIViewContentModeScaleAspectFit;
+    bgImage.alpha = .7;
+    [self.dataTable setBackgroundView:bgImage];
+    [self.view setBackgroundColor:[UIColor blackColor]];
 
 	self.playerNamers = [[NSArray alloc] initWithObjects:@"dexter-0", @"meteos",@"noname",@"amazing",@"crumbzz",@"helios",@"kez",@"iwilldominate",@"doublelift",@"sneaky",@"vasilii",@"wildturtle",@"imaqtpie",@"altec",@"robertxlee",@"cop",@"link", @"hai", @"xiaoweixiao", @"bjergsen", @"shiphtur", @"pobelter", @"pr0lly", @"voyboy", @"aphromoo", @"lemonnation", @"mor", @"gleeb", @"kiwikid", @"krepo", @"bubbadub", @"xpecial", @"seraph", @"balls", @"ackerman", @"dyrus", @"zion-spartan", @"innox-0", @"westrice", @"quas", nil];
 	self.NA = true;
@@ -50,9 +52,6 @@
 			       });
 	}
 
-	//[localNAArray sortUsingSelector:@selector()];
-	//[localEUArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-	// Do any additional setup after loading the view, typically from a nib.
 	[self.dataTable setDelegate:self];
 	[self.dataTable setDataSource:self];
 
@@ -62,11 +61,11 @@
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
 }
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	// Return the number of sections.
 	return 1;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	// Return the number of rows in the section.

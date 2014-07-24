@@ -143,8 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				3F9B908D197991F300632F13 /* hpple */,
-				3F17CDD819771356005698F5 /* AppDelegate.h */,
 				3F17CDD919771356005698F5 /* AppDelegate.m */,
+				3F17CDD819771356005698F5 /* AppDelegate.h */,
 				3F17CDDB19771356005698F5 /* Main.storyboard */,
 				3F9B90581978482500632F13 /* Global.h */,
 				3F9B90591978482500632F13 /* Global.m */,
@@ -456,6 +456,7 @@
 				);
 				INFOPLIST_FILE = "LCS Players/LCS Players-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -469,6 +470,7 @@
 				GCC_PREFIX_HEADER = "LCS Players/LCS Players-Prefix.pch";
 				INFOPLIST_FILE = "LCS Players/LCS Players-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

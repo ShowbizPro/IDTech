@@ -44,3 +44,13 @@
 }
 
 @end
+
+@interface UINavigationController (StatusBarStyle)
+
+@end
+
+@implementation UINavigationController (StatusBarStyle)
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+@end

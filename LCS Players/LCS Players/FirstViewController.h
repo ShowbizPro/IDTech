@@ -11,7 +11,7 @@
 #import "ViewControllerInfoPage.h"
 #import "PlayerStats.h"
 #import "GrabData.h"
-@interface FirstViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface FirstViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIApplicationDelegate> {
 	
     NSMutableArray *localNAArray;
     NSMutableArray *localEUArray;
