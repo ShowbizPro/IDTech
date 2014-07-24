@@ -46,5 +46,10 @@ static NSLock *nalock;
     return nalock;
 }
 
+static NSLock *eulock;
++(NSLock*)getEULock{
+    return eulock;
+}
+
 
 @end

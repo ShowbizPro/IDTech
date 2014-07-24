@@ -106,7 +106,34 @@
                             <constraint firstItem="SpZ-mk-vC6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5W1-S6-jvo" secondAttribute="leading" constant="26" id="xIG-aC-SMJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Pbp-e1-4pU"/>
+                    <navigationItem key="navigationItem" id="Pbp-e1-4pU">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="VsM-G0-bAF">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q4L-ip-Ba6">
+                                <rect key="frame" x="16" y="5" width="121" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Organize by team">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="teamButton:" destination="I94-7h-MVK" eventType="touchUpInside" id="FXz-Sy-Og8"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="eg4-tm-0ou">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HGB-jP-SE2">
+                                <rect key="frame" x="191" y="5" width="113" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Organize by IGN">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="IGNButton:" destination="I94-7h-MVK" eventType="touchUpInside" id="lKQ-sm-VGA"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dataTable" destination="SpZ-mk-vC6" id="csw-Kx-Acy"/>
                         <outlet property="outSegment" destination="YKm-Wm-OdI" id="umq-hu-zMc"/>

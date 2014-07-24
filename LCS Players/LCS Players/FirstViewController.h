@@ -32,6 +32,8 @@
 @property (nonatomic) NSArray *playerNamers;
 @property (nonatomic) NSArray *playerNamersEU;
 
+- (IBAction)teamButton:(id)sender;
+- (IBAction)IGNButton:(id)sender;
 
 
 

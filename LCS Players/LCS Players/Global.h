@@ -18,6 +18,7 @@
 +(FirstViewController*)getFVC;
 
 +(NSLock*)getNaLock;
++(NSLock*)getEULock;
 
 
 

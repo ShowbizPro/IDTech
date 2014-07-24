@@ -126,4 +126,35 @@
 	[self.dataTable reloadData];
 }
 
+- (IBAction)teamButton:(id)sender {
+    [[Global getNaLock]lock];
+    [localNAArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+        return [ps1.team localizedCaseInsensitiveCompare:ps2.team];
+    }];
+    [[Global getNaLock]unlock];
+    
+    
+    [[Global getEULock]lock];
+    [localEUArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+        return [ps1.team localizedCaseInsensitiveCompare:ps2.team];
+    }];
+    [[Global getEULock]unlock];
+    [self.dataTable reloadData];
+}
+
+- (IBAction)IGNButton:(id)sender {
+    [[Global getNaLock]lock];
+    [localNAArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+        return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
+    }];
+    [[Global getNaLock]unlock];
+    
+    
+    [[Global getEULock]lock];
+    [localEUArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+        return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
+    }];
+    [[Global getEULock]unlock];
+    [self.dataTable reloadData];
+}
 @end
