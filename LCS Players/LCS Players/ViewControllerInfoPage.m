@@ -31,16 +31,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[Global getNaLock] lock];
 	localNAArray = [Global getIGNNAArray];
+    [[Global getNaLock] unlock];
+    
+    
+    [[Global getEULock] lock];
     localEUArray = [Global getIGNEUArray];
+    [[Global getEULock] unlock];
     PlayerStats *PS ;
     
     FirstViewController *FVC = [Global getFVC];
     if(FVC.NA){
+         [[Global getNaLock] lock];
       PS   = localNAArray[FVC.indexSelection];
+         [[Global getNaLock] unlock];
     }
     else{
+         [[Global getEULock] lock];
         PS = localEUArray[FVC.indexSelection];
+         [[Global getEULock] unlock];
     }
     //NA = true;
     

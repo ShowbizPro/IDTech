@@ -22,6 +22,8 @@
 		3F17CDF619771356005698F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F17CDF419771356005698F5 /* InfoPlist.strings */; };
 		3F17CDF819771356005698F5 /* LCS_PlayersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F17CDF719771356005698F5 /* LCS_PlayersTests.m */; };
 		3F17CE0919771D7A005698F5 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F17CE0819771D7A005698F5 /* UserCell.m */; };
+		3F253E671981752E00835811 /* Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F253E651981752E00835811 /* Player.xcdatamodeld */; };
+		3F253E691981775700835811 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F253E681981775700835811 /* CoreData.framework */; };
 		3F9B90541978059400632F13 /* PlayerStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B90531978059400632F13 /* PlayerStats.m */; };
 		3F9B905719783E7700632F13 /* ViewControllerInfoPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B905619783E7700632F13 /* ViewControllerInfoPage.m */; };
 		3F9B905A1978482500632F13 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B90591978482500632F13 /* Global.m */; };
@@ -64,6 +66,8 @@
 		3F17CDF719771356005698F5 /* LCS_PlayersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCS_PlayersTests.m; sourceTree = "<group>"; };
 		3F17CE0719771D7A005698F5 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
 		3F17CE0819771D7A005698F5 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		3F253E661981752E00835811 /* Player.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Player.xcdatamodel; sourceTree = "<group>"; };
+		3F253E681981775700835811 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3F9B90521978059400632F13 /* PlayerStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerStats.h; sourceTree = "<group>"; };
 		3F9B90531978059400632F13 /* PlayerStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerStats.m; sourceTree = "<group>"; };
 		3F9B905519783E7700632F13 /* ViewControllerInfoPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerInfoPage.h; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F253E691981775700835811 /* CoreData.framework in Frameworks */,
 				3F9B908C19798FF100632F13 /* libxml2.dylib in Frameworks */,
 				3F17CDCC19771356005698F5 /* CoreGraphics.framework in Frameworks */,
 				3F17CDCE19771356005698F5 /* UIKit.framework in Frameworks */,
@@ -129,6 +134,7 @@
 		3F17CDC819771356005698F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F253E681981775700835811 /* CoreData.framework */,
 				3F9B908B19798FF100632F13 /* libxml2.dylib */,
 				3F9B908919798F7B00632F13 /* libxml2.2.dylib */,
 				3F17CDC919771356005698F5 /* Foundation.framework */,
@@ -154,6 +160,7 @@
 				3F9B905619783E7700632F13 /* ViewControllerInfoPage.m */,
 				3F9B905B1979532700632F13 /* GrabData.h */,
 				3F9B905C1979532700632F13 /* GrabData.m */,
+				3F253E651981752E00835811 /* Player.xcdatamodeld */,
 				3F17CE0719771D7A005698F5 /* UserCell.h */,
 				3F17CE0819771D7A005698F5 /* UserCell.m */,
 				3F17CDDE19771356005698F5 /* FirstViewController.h */,
@@ -311,6 +318,7 @@
 				3F9B90951979922B00632F13 /* TFHppleElement.m in Sources */,
 				3F9B90941979922B00632F13 /* TFHpple.m in Sources */,
 				3F9B905A1978482500632F13 /* Global.m in Sources */,
+				3F253E671981752E00835811 /* Player.xcdatamodeld in Sources */,
 				3F9B90541978059400632F13 /* PlayerStats.m in Sources */,
 				3F17CDD619771356005698F5 /* main.m in Sources */,
 				3F9B905719783E7700632F13 /* ViewControllerInfoPage.m in Sources */,
@@ -546,6 +554,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F253E651981752E00835811 /* Player.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F253E661981752E00835811 /* Player.xcdatamodel */,
+			);
+			currentVersion = 3F253E661981752E00835811 /* Player.xcdatamodel */;
+			path = Player.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3F17CDBE19771356005698F5 /* Project object */;
 }

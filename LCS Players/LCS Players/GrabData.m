@@ -9,7 +9,6 @@
 #import "GrabData.h"
 #import "TFHpple.h"
 #import "Global.h"
-
 @implementation GrabData
 @synthesize title = _title;
 @synthesize url = _url;
@@ -24,11 +23,115 @@ static NSString *lastName;
 	return self;
 }
 
++ (void)saveData:(NSString*)regionString PS:(PlayerStats*)PS{
+
+	AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+	NSManagedObjectContext *context = [appDelegate managedObjectContext];
+	NSManagedObject *newContact;
+	newContact = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:context];
+	[newContact setValue: PS.ign forKey:@"ign"];
+	[newContact setValue: PS.name forKey:@"name"];
+	[newContact setValue: PS.team forKey:@"team"];
+	[newContact setValue: PS.position forKey:@"position"];
+	[newContact setValue: PS.avgKDA forKey:@"avgKDA"];
+	[newContact setValue: PS.avgGoldPerMin forKey:@"avgGPM"];
+	[newContact setValue: PS.avgTotalGold forKey:@"avgTG"];
+	[newContact setValue: PS.bio forKey:@"bio"];
+	[newContact setValue: PS.photo forKey:@"photo"];
+    [newContact setValue: regionString forKey:@"region"];
+	NSError *error;
+	[context save:&error];
+
+}
++ (void)findContactNA {
+	
+	NSMutableArray *localNAArray = [Global getIGNNAArray];
+    NSMutableArray *localEUArray = [Global getIGNEUArray];
+    
+	FirstViewController *FVC = [Global getFVC];
+	AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+	NSManagedObjectContext *context = [appDelegate managedObjectContext];
+
+	NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:context];
+
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	[request setEntity:entityDesc];
+
+	NSPredicate *pred = [NSPredicate predicateWithFormat:@"(region=%@)", @"NA"];
+	//if this is nil, returns everything that has been saved.
+	[request setPredicate:pred];
+	NSManagedObject *matches = nil;
+
+	NSError *error;
+	NSArray *objects = [context executeFetchRequest:request error:&error];
+
+    for (int i = 0; i < objects.count; i++){
+        PlayerStats *PS = [[PlayerStats alloc] init];
+        matches = objects[i];
+        PS.name = [matches valueForKey:@"name"];
+        PS.ign = [matches valueForKey:@"ign"];
+        PS.team = [matches valueForKey:@"team"];
+        PS.position = [matches valueForKey:@"position"];
+        PS.avgKDA = [matches valueForKey:@"avgKDA"];
+        PS.avgGoldPerMin = [matches valueForKey:@"avgGPM"];
+        PS.avgTotalGold = [matches valueForKey:@"avgTG"];
+        PS.bio = [matches valueForKey:@"bio"];
+        PS.photo = [matches valueForKey:@"photo"];
+        [[Global getNaLock] lock];
+        [localNAArray addObject:PS];
+        [[Global getNaLock] unlock];
+    }
+    
+    
+    NSFetchRequest *requestEU = [[NSFetchRequest alloc] init];
+	[requestEU setEntity:entityDesc];
+    
+    NSPredicate *predEU = [NSPredicate predicateWithFormat:@"(region=%@)", @"EU"];
+	//if this is nil, returns everything that has been saved.
+	[requestEU setPredicate:predEU];
+	NSManagedObject *matchesEU = nil;
+    
+	NSError *errorEU;
+	NSArray *objectsEU = [context executeFetchRequest:requestEU error:&errorEU];
+    
+    for (int i = 0; i < objectsEU.count; i++){
+        PlayerStats *PS = [[PlayerStats alloc] init];
+        matchesEU = objectsEU[i];
+        PS.name = [matchesEU valueForKey:@"name"];
+        PS.ign = [matchesEU valueForKey:@"ign"];
+        PS.team = [matchesEU valueForKey:@"team"];
+        PS.position = [matchesEU valueForKey:@"position"];
+        PS.avgKDA = [matchesEU valueForKey:@"avgKDA"];
+        PS.avgGoldPerMin = [matchesEU valueForKey:@"avgGPM"];
+        PS.avgTotalGold = [matchesEU valueForKey:@"avgTG"];
+        PS.bio = [matchesEU valueForKey:@"bio"];
+        PS.photo = [matchesEU valueForKey:@"photo"];
+        [[Global getEULock] lock];
+        [localEUArray addObject:PS];
+        [[Global getEULock] unlock];
+    }
+    [localNAArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+        return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
+    }];
+    [localEUArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+        return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
+    }];
+    [FVC.dataTable reloadData];
+}
+
+
+
+
+
 + (PlayerStats*)getData:(NSString*)playerName {
 	//[Global setGD:self];
 	PlayerStats *PS = [[PlayerStats alloc] init];
 	FirstViewController *FVC = [Global getFVC];
+	[[Global getNaLock] lock];
 	NSMutableArray *localNAArray = [Global getIGNNAArray];
+	[[Global getNaLock] unlock];
 
 	NSString *playerNames = [@"http://na.lolesports.com/na-lcs/2014/split2/players/" stringByAppendingString : playerName];
 
@@ -46,15 +149,13 @@ static NSString *lastName;
 
 	[[Global getNaLock] lock];
 	[localNAArray addObject:PS];
-	if(localNAArray.count >= FVC.playerNamers.count) {
-        [localNAArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
-			         return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
-        }];
-		[FVC.dataTable performSelectorOnMainThread:@selector(reloadData)
-		 withObject:nil waitUntilDone:YES];
-	}
+	[localNAArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+	         return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
+	 }];
+	[FVC.dataTable performSelectorOnMainThread:@selector(reloadData)
+	 withObject:nil waitUntilDone:YES];
+    //[self saveData:@"NA" PS:PS];
 	[[Global getNaLock] unlock];
-
 	return PS;
 }
 
@@ -63,7 +164,9 @@ static NSString *lastName;
 
 	PlayerStats *PSEU = [[PlayerStats alloc] init];
 	FirstViewController *FVC = [Global getFVC];
+	[[Global getEULock] lock];
 	NSMutableArray *localEUArray = [Global getIGNEUArray];
+	[[Global getEULock] unlock];
 
 	NSString *playerNames = [@"http://na.lolesports.com/eu-lcs/2014/split2/players/" stringByAppendingString : playerName];
 
@@ -81,13 +184,13 @@ static NSString *lastName;
 
 	[[Global getEULock] lock];
 	[localEUArray addObject:PSEU];
-        [localEUArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
-            return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
-        }];
+	[localEUArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+	         return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
+	 }];
 	[FVC.dataTable performSelectorOnMainThread:@selector(reloadData)
 	 withObject:nil waitUntilDone:YES];
 	[[Global getEULock] unlock];
-
+    //[self saveData:@"EU" PS:PSEU];
 	return PSEU;
 }
 
@@ -186,7 +289,7 @@ static NSString *lastName;
 	if([PS.ign isEqualToString:@"Meteos" ]||[PS.ign isEqualToString:@"Hai" ]||[PS.ign isEqualToString:@"LemonNation" ]||[PS.ign isEqualToString:@"Sneaky" ]||[PS.ign isEqualToString:@"Balls"]) {
 		PS.team = @"Cloud9";
 	}
-	if([PS.ign isEqualToString:@"Bjergsen" ]||[PS.ign isEqualToString:@"Dyrus" ]||[PS.ign isEqualToString:@"Amazing" ]||[PS.ign isEqualToString:@"WildTurtle" ]||[PS.ign isEqualToString:@"Gleeb"]) {
+	if([PS.ign isEqualToString:@"Bjergsen" ]||[PS.ign isEqualToString:@"Dyrus" ]||[PS.ign isEqualToString:@"Amazing" ]||[PS.ign isEqualToString:@"WildTurtle" ]||[PS.ign isEqualToString:@"Lustboy"]) {
 		PS.team = @"TSM";
 	}
 	if([PS.ign isEqualToString:@"Mor" ]||[PS.ign isEqualToString:@"XiaoWeiXiao" ]||[PS.ign isEqualToString:@"ackerman" ]||[PS.ign isEqualToString:@"Vasilii" ]||[PS.ign isEqualToString:@"NoName"]) {

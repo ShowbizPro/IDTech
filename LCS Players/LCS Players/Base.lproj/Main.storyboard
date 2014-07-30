@@ -96,11 +96,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YKm-Wm-OdI" firstAttribute="leading" secondItem="5W1-S6-jvo" secondAttribute="leading" constant="26" id="3Zf-Og-zUv"/>
+                            <constraint firstAttribute="centerY" secondItem="SpZ-mk-vC6" secondAttribute="centerY" constant="36" id="5Lk-Aw-T69"/>
                             <constraint firstItem="xSr-52-Dsw" firstAttribute="top" secondItem="YKm-Wm-OdI" secondAttribute="bottom" constant="20" id="IyS-7B-gZY"/>
                             <constraint firstItem="SpZ-mk-vC6" firstAttribute="leading" secondItem="5W1-S6-jvo" secondAttribute="leading" constant="26" id="cpj-qc-Z96"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SpZ-mk-vC6" secondAttribute="trailing" constant="26" id="hc7-FW-yAJ"/>
                             <constraint firstItem="YKm-Wm-OdI" firstAttribute="top" secondItem="SpZ-mk-vC6" secondAttribute="bottom" constant="24" id="jT0-jf-4de"/>
-                            <constraint firstItem="SpZ-mk-vC6" firstAttribute="top" secondItem="5W1-S6-jvo" secondAttribute="top" id="pb7-Ld-sxR"/>
                             <constraint firstAttribute="trailing" secondItem="SpZ-mk-vC6" secondAttribute="trailing" constant="26" id="r0U-19-UZk"/>
                             <constraint firstAttribute="trailing" secondItem="YKm-Wm-OdI" secondAttribute="trailing" constant="26" id="u4M-4f-Bhd"/>
                             <constraint firstItem="SpZ-mk-vC6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5W1-S6-jvo" secondAttribute="leading" constant="26" id="xIG-aC-SMJ"/>

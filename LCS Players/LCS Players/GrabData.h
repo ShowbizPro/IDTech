@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "PlayerStats.h"
 #import "TFHpple.h"
+#import "AppDelegate.h"
 
-@interface GrabData : NSObject{
-    
-    
-}
+
+@interface GrabData : NSObject
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *url;
@@ -25,4 +24,9 @@
 +(PlayerStats*)getPhoto:(TFHpple*)playerParser PS:(PlayerStats*)PS;
 +(PlayerStats*)getStats:(TFHpple*)playerParser PS:(PlayerStats*)PS;
 +(PlayerStats*)getBio:(TFHpple*)playerParser PS:(PlayerStats*)PS;
+
++ (void)saveData:(NSString*)regionString PS:(PlayerStats*)PS;
+
++ (void)findContactNA;
+
 @end

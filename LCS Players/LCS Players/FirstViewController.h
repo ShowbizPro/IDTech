@@ -16,6 +16,7 @@
     NSMutableArray *localNAArray;
     NSMutableArray *localEUArray;
     GrabData *localGrabData;
+    UIImageView *coverImage;
 }
 
 - (IBAction)Segment:(id)sender;

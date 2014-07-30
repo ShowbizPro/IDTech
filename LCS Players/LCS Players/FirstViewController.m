@@ -19,24 +19,46 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-
+	[[Global getNaLock] lock];
 	localNAArray = [Global getIGNNAArray];
+	[[Global getNaLock] unlock];
+
+	[[Global getEULock] lock];
 	localEUArray = [Global getIGNEUArray];
+	[[Global getEULock] unlock];
 
 	[Global setFVC:self];
 
+	coverImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cover"]];
+	[coverImage setHidden:false];
+	[coverImage bringSubviewToFront:self.view];
+	CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
 
-    UIImageView *bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
-    bgImage.contentMode = UIViewContentModeScaleAspectFit;
-    bgImage.alpha = .7;
-    [self.dataTable setBackgroundView:bgImage];
-    [self.view setBackgroundColor:[UIColor blackColor]];
+	[coverImage setFrame:CGRectMake(0, 0, screenRect.size.width, screenRect.size.height)];
+	[coverImage setAlpha:1];
+	//[self.navigationController.navigationBar setHidden:true];
+	//[self.view addSubview:coverImage];
 
-	self.playerNamers = [[NSArray alloc] initWithObjects:@"dexter-0", @"meteos",@"noname",@"amazing",@"crumbzz",@"helios",@"kez",@"iwilldominate",@"doublelift",@"sneaky",@"vasilii",@"wildturtle",@"imaqtpie",@"altec",@"robertxlee",@"cop",@"link", @"hai", @"xiaoweixiao", @"bjergsen", @"shiphtur", @"pobelter", @"pr0lly", @"voyboy", @"aphromoo", @"lemonnation", @"mor", @"gleeb", @"kiwikid", @"krepo", @"bubbadub", @"xpecial", @"seraph", @"balls", @"ackerman", @"dyrus", @"zion-spartan", @"innox-0", @"westrice", @"quas", nil];
+
+
+
+	NSTimer *coverTimer = [[NSTimer alloc] init];
+	coverTimer = [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(hideCover) userInfo:nil repeats:false];
+
+
+	UIImageView *bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+	bgImage.contentMode = UIViewContentModeScaleAspectFit;
+	bgImage.alpha = .7;
+	[self.dataTable setBackgroundView:bgImage];
+	[self.view setBackgroundColor:[UIColor blackColor]];
+
+	self.playerNamers = [[NSArray alloc] initWithObjects:@"dexter-0", @"meteos",@"noname",@"amazing",@"crumbzz",@"helios",@"kez",@"iwilldominate",@"doublelift",@"sneaky",@"vasilii",@"wildturtle",@"imaqtpie",@"altec",@"robertxlee",@"cop",@"link", @"hai", @"xiaoweixiao", @"bjergsen", @"shiphtur", @"pobelter", @"pr0lly", @"voyboy", @"aphromoo", @"lemonnation", @"mor", @"lustboy", @"kiwikid", @"krepo", @"bubbadub", @"xpecial", @"seraph", @"balls", @"ackerman", @"dyrus", @"zion-spartan", @"innox-0", @"westrice", @"quas", nil];
 	self.NA = true;
 
 	self.playerNamersEU = [[NSArray alloc] initWithObjects: @"shook", @"cyanide",@"kottenx", @"jankos",@"svenskeren", @"impaler", @"airwaks", @"diamond", @"tabzz", @"rekkles", @"creaton", @"celaver-0", @"candypanda", @"mrrallez", @"woolite", @"genja", @"froggen", @"xpeke", @"kerp", @"overpow",@"jesiz", @"selfie", @"cowtard-0", @"niq-0", @"nyph", @"yellowstar", @"jree", @"vander",@"nrated", @"kasing",@"unlimited-0", @"edward", @"wickd",@"soaz",@"kev1n",@"xaxus",@"fredy122",@"mimer", @"youngbuck-0", @"fomko",nil];
-
+    
+    
+    //[GrabData findContactNA];
 
 	for (int i=0; i < self.playerNamers.count; i++) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
@@ -48,15 +70,26 @@
 	for(int i=0; i<self.playerNamersEU.count; i++) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
 		                       [GrabData getEUData:self.playerNamersEU[i]];
-                
+
 			       });
 	}
+
+
+	
+
+
 
 	[self.dataTable setDelegate:self];
 	[self.dataTable setDataSource:self];
 
 	[self.dataTable reloadData];
 }
+
+-(void)hideCover {
+	[coverImage setHidden:true];
+	//[self.navigationController.navigationBar setHidden:false];
+}
+
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
@@ -70,10 +103,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	// Return the number of rows in the section.
 	if (self.NA) {
+		[[Global getNaLock] lock];
 		return [localNAArray count];
+		[[Global getNaLock] unlock];
 	}
 	else {
+		[[Global getEULock] lock];
 		return [localEUArray count];
+		[[Global getEULock] unlock];
 	}
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,14 +128,16 @@
 	static NSString *CellIdentifier = @"userCell";
 	UserCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 	if (self.NA) {
-        [[Global getNaLock] lock];
+		[[Global getNaLock] lock];
 		PlayerStats *PSNA = [localNAArray objectAtIndex:[indexPath row]];
 		[cell.IGNLabel setText:PSNA.ign];
-        [[Global getNaLock] unlock];
+		[[Global getNaLock] unlock];
 	}
 	else {
+		[[Global getEULock] lock];
 		PlayerStats *PSEU = [localEUArray objectAtIndex:[indexPath row]];
 		[cell.IGNLabel setText:PSEU.ign];
+		[[Global getEULock] unlock];
 	}
 
 	// Configure the cell...
@@ -127,34 +166,34 @@
 }
 
 - (IBAction)teamButton:(id)sender {
-    [[Global getNaLock]lock];
-    [localNAArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
-        return [ps1.team localizedCaseInsensitiveCompare:ps2.team];
-    }];
-    [[Global getNaLock]unlock];
-    
-    
-    [[Global getEULock]lock];
-    [localEUArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
-        return [ps1.team localizedCaseInsensitiveCompare:ps2.team];
-    }];
-    [[Global getEULock]unlock];
-    [self.dataTable reloadData];
+	[[Global getNaLock]lock];
+	[localNAArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+	         return [ps1.team localizedCaseInsensitiveCompare:ps2.team];
+	 }];
+	[[Global getNaLock]unlock];
+
+
+	[[Global getEULock]lock];
+	[localEUArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+	         return [ps1.team localizedCaseInsensitiveCompare:ps2.team];
+	 }];
+	[[Global getEULock]unlock];
+	[self.dataTable reloadData];
 }
 
 - (IBAction)IGNButton:(id)sender {
-    [[Global getNaLock]lock];
-    [localNAArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
-        return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
-    }];
-    [[Global getNaLock]unlock];
-    
-    
-    [[Global getEULock]lock];
-    [localEUArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
-        return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
-    }];
-    [[Global getEULock]unlock];
-    [self.dataTable reloadData];
+	[[Global getNaLock]lock];
+	[localNAArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+	         return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
+	 }];
+	[[Global getNaLock]unlock];
+
+
+	[[Global getEULock]lock];
+	[localEUArray sortUsingComparator:^NSComparisonResult (PlayerStats *ps1, PlayerStats *ps2){
+	         return [ps1.ign localizedCaseInsensitiveCompare:ps2.ign];
+	 }];
+	[[Global getEULock]unlock];
+	[self.dataTable reloadData];
 }
 @end
