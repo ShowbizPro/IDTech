@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/titleBG">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Welcome To Rock Paper Scissors"
+        android:text="Welcome To Rock Paper Scissors Lizard Spock"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -15,7 +16,7 @@
 
     <ImageView
         android:layout_width="400px"
-        android:layout_height="200px"
+        android:layout_height="400px"
         android:id="@+id/imageView"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
@@ -30,6 +31,15 @@
         android:layout_alignStart="@+id/imageView"
         android:layout_marginTop="40dp"
         android:onClick="startGame"/>
+    <Button
+        android:layout_width="400px"
+        android:layout_height="wrap_content"
+        android:text="Rules"
+        android:id="@+id/rules"
+        android:layout_below="@+id/button"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_marginTop="40dp"
+        android:onClick="goToRules"/>
 
 
 </RelativeLayout>

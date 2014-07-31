@@ -1,6 +1,357 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/howTo">
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/scis1"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="150dp"/>
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/paper1"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@+id/scis1"
+        android:layout_marginLeft="150dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cuts"
+        android:layout_toRightOf="@+id/scis1"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="40dp"
+        android:id="@+id/cuts"/>
+
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/paper2"
+        android:layout_below="@+id/scis1"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="150dp"/>
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/rock1"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/paper1"
+        android:layout_toRightOf="@+id/paper2"
+        android:layout_marginLeft="150dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="covers"
+        android:layout_toRightOf="@+id/paper2"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/cuts"
+        android:layout_marginTop="60dp"
+        android:id="@+id/covers"/>
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/rock2"
+        android:layout_below="@+id/paper2"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="150dp"/>
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/lizard1"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/rock1"
+        android:layout_toRightOf="@+id/rock2"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/lizard2"
+        android:layout_below="@+id/rock2"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="150dp"/>
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/spock1"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/lizard1"
+        android:layout_toRightOf="@+id/lizard2"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/spock2"
+        android:layout_below="@+id/lizard2"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="150dp"/>
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/scis2"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/spock1"
+        android:layout_toRightOf="@+id/spock2"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/scis3"
+        android:layout_below="@+id/spock2"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="150dp"/>
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/lizard3"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/scis2"
+        android:layout_toRightOf="@+id/scis3"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/lizard4"
+        android:layout_below="@+id/scis3"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="150dp"/>
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/paper3"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/lizard3"
+        android:layout_toRightOf="@+id/lizard4"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/paper4"
+        android:layout_below="@+id/lizard4"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="150dp"/>
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/spock3"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/paper3"
+        android:layout_toRightOf="@+id/paper4"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/spock4"
+        android:layout_below="@+id/paper4"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="150dp"/>
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/rock3"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/spock3"
+        android:layout_toRightOf="@+id/spock4"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/rock4"
+        android:layout_below="@+id/spock4"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="150dp"/>
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:id="@+id/scis4"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/rock3"
+        android:layout_toRightOf="@+id/rock4"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Rules of Rock Paper Scissors Lizard Spock"
+        android:id="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
+
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="crushes"
+        android:layout_toRightOf="@+id/rock2"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/covers"
+        android:layout_marginTop="60dp"
+        android:id="@+id/crushes"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="poisons"
+        android:layout_toRightOf="@+id/lizard2"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/crushes"
+        android:layout_marginTop="60dp"
+        android:id="@+id/poisons"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="smashes"
+        android:layout_toRightOf="@+id/spock2"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/poisons"
+        android:layout_marginTop="60dp"
+        android:id="@+id/smashes"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="decapitates"
+        android:layout_toRightOf="@+id/scis3"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/smashes"
+        android:layout_marginTop="60dp"
+        android:id="@+id/decapitates"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="eats"
+        android:layout_toRightOf="@+id/lizard4"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/decapitates"
+        android:layout_marginTop="60dp"
+        android:id="@+id/eats"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="disproves"
+        android:layout_toRightOf="@+id/paper4"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/eats"
+        android:layout_marginTop="60dp"
+        android:id="@+id/disproves"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="vaporizes"
+        android:layout_toRightOf="@+id/spock4"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/disproves"
+        android:layout_marginTop="60dp"
+        android:id="@+id/vaporizes"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="crushes"
+        android:layout_toRightOf="@+id/rock4"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/vaporizes"
+        android:layout_marginTop="60dp"
+        android:id="@+id/crushes2"/>
+
+
+
+
+
+
+
+
+
+
+    <!--<Button-->
+        <!--android:layout_width="200px"-->
+        <!--android:layout_height="wrap_content"-->
+
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="Return to Home Screen"-->
+        <!--android:onClick="goHome"-->
+        <!--/>-->
+
 
 </RelativeLayout>

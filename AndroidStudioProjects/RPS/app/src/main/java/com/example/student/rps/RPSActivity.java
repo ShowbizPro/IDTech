@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,7 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import android.widget.TextView;
 import org.apache.http.Header;
 
 import java.util.Random;
@@ -21,7 +22,7 @@ import java.util.Random;
 public class RPSActivity extends Activity {
 
     public enum Choice {
-        ROCK, PAPER, SCISSORS
+        ROCK, PAPER, SCISSORS, LIZARD, SPOCK
     }
 
     ImageView playerChoice;
@@ -29,6 +30,8 @@ public class RPSActivity extends Activity {
     ImageButton rock;
     ImageButton paper;
     ImageButton scissors;
+    ImageButton lizard;
+    ImageButton spock;
     TextView winsText;
     TextView lossText;
     TextView tieText;
@@ -43,7 +46,11 @@ public class RPSActivity extends Activity {
     int ties;
     AlertDialog lostDialog;
     AlertDialog wonDialog;
-    AlertDialog tiedDialog;
+
+    int bgColor;
+    static boolean sound = true;
+
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +62,8 @@ public class RPSActivity extends Activity {
         paper = (ImageButton)findViewById(R.id.paper);
         scissors = (ImageButton)findViewById(R.id.scissor);
         result = (TextView)findViewById(R.id.result);
+        lizard = (ImageButton)findViewById(R.id.lizard);
+        spock = (ImageButton)findViewById(R.id.spock);
 
         winsText = (TextView)findViewById(R.id.wins);
         lossText = (TextView)findViewById(R.id.losses);
@@ -65,60 +74,33 @@ public class RPSActivity extends Activity {
         rock.setBackground(getResources().getDrawable(R.drawable.rock));
         paper.setBackground(getResources().getDrawable(R.drawable.paper));
         scissors.setBackground(getResources().getDrawable(R.drawable.scissors));
+        lizard.setBackground(getResources().getDrawable(R.drawable.lizard));
+        spock.setBackground(getResources().getDrawable(R.drawable.spock));
         rock.setTag("rock");
         paper.setTag("paper");
         scissors.setTag("scissor");
+        lizard.setTag("lizard");
+        spock.setTag("spock");
 
-        Intent colorIntent = getIntent();
+        mp= MediaPlayer.create(this, R.raw.rps);
 
-        root.setBackgroundColor(colorIntent.getExtras().getInt("bgColor"));
+        alert();
 
-
-
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(RPSActivity.this);
-
-        lostDialog = builder.setTitle("Gosh").setMessage("You lost 10 times already?!").setNeutralButton("Try Again", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                wins = 0;
-                losses = 0;
-                ties = 0;
-                dialogInterface.dismiss();
-                winsText.setText(wins+"");
-                lossText.setText(losses+"");
-                tieText.setText(ties+"");
-            }
-        }).setNegativeButton("Change Difficulty", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(RPSActivity.this, settingsActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-            }
-        }).create();
-
-        wonDialog = builder.setTitle("Congratulations").setMessage("You won 10 times!").setNeutralButton("Play Again", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                wins = 0;
-                losses = 0;
-                ties = 0;
-                dialogInterface.dismiss();
-                winsText.setText(wins+"");
-                lossText.setText(losses+"");
-                tieText.setText(ties+"");
-
-            }
-        }).create();
-
-
-
-
+        Intent intent2 = getIntent();
+        if(intent2.getExtras() != null) {
+            root.setBackgroundResource(intent2.getExtras().getInt("bgColor"));
+            bgColor = intent2.getExtras().getInt("bgColor");
+        }
+        else{
+            root.setBackgroundColor(-1);
+            bgColor = android.R.color.white;
+        }
 
         click(rock);
         click(paper);
         click(scissors);
+        click(lizard);
+        click(spock);
 
 
 
@@ -140,6 +122,31 @@ public class RPSActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, settingsActivity.class);
+            intent.putExtra("bgColor", bgColor);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            return true;
+        }
+        if (id == R.id.home_page) {
+            Intent intent = new Intent(this, titlePage.class);
+            intent.putExtra("bgColor", bgColor);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            return true;
+        }
+        if (id == R.id.rps) {
+            Intent intent = new Intent(this, RPSActivity.class);
+            intent.putExtra("bgColor", bgColor);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            return true;
+        }
+        if (id == R.id.rules) {
+            Intent intent = new Intent(this, howTo.class);
+            intent.putExtra("bgColor", bgColor);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -149,7 +156,17 @@ public class RPSActivity extends Activity {
         iB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int x = rand.nextInt(3);
+                if(sound) {
+                    mp = MediaPlayer.create(RPSActivity.this, R.raw.rps);
+                    if (!mp.isPlaying()) {
+                        mp.start();
+                    }
+                    else{
+                        mp.seekTo(0);
+                    }
+                }
+
+                int x = rand.nextInt(5);
                 if(iB.getTag() ==("rock")) {
                     playerChoice.setBackground(getResources().getDrawable(R.drawable.rock));
                     playersChoice = Choice.ROCK;
@@ -158,9 +175,17 @@ public class RPSActivity extends Activity {
                     playerChoice.setBackground(getResources().getDrawable(R.drawable.paper));
                     playersChoice = Choice.PAPER;
                 }
-                else{
+                else if(iB.getTag() == ("scissor")){
                     playerChoice.setBackground(getResources().getDrawable(R.drawable.scissors));
                     playersChoice = Choice.SCISSORS;
+                }
+                else if(iB.getTag() == ("lizard")){
+                    playerChoice.setBackground(getResources().getDrawable(R.drawable.lizard));
+                    playersChoice = Choice.LIZARD;
+                }
+                else{
+                    playerChoice.setBackground(getResources().getDrawable(R.drawable.spock));
+                    playersChoice = Choice.SPOCK;
                 }
                 makeCompChoice(x);
 
@@ -170,8 +195,14 @@ public class RPSActivity extends Activity {
                 else if(compsChoice == Choice.PAPER){
                     compChoice.setBackground(getResources().getDrawable(R.drawable.paper));
                 }
-                else{
+                else if(compsChoice == Choice.SCISSORS){
                     compChoice.setBackground(getResources().getDrawable(R.drawable.scissors));
+                }
+                else if(compsChoice == Choice.LIZARD){
+                    compChoice.setBackground(getResources().getDrawable(R.drawable.lizard));
+                }
+                else{
+                    compChoice.setBackground(getResources().getDrawable(R.drawable.spock));
                 }
 
                 compareChoices();
@@ -181,39 +212,21 @@ public class RPSActivity extends Activity {
     }
 
     public void makeCompChoice(int x){
-        Intent intent = getIntent();
-        if(!intent.getExtras().getBoolean("hardMode") && !intent.getExtras().getBoolean("easyMode")) {
             if (x == 0) {
                 compsChoice = Choice.ROCK;
-            } else if (x == 1) {
-                compsChoice = Choice.PAPER;
-            } else {
-                compsChoice = Choice.SCISSORS;
             }
-        }
-        else if(intent.getExtras().getBoolean("hardMode") && !intent.getExtras().getBoolean("easyMode")){
-            if(playersChoice == Choice.ROCK){
+            else if (x == 1) {
                 compsChoice = Choice.PAPER;
             }
-            else if(playersChoice == Choice.PAPER){
+            else if(x==2){
                 compsChoice = Choice.SCISSORS;
+            }
+            else if(x==3){
+                compsChoice = Choice.LIZARD;
             }
             else{
-                compsChoice = Choice.ROCK;
+                compsChoice = Choice.SPOCK;
             }
-        }
-        else{
-            if(playersChoice == Choice.ROCK){
-                compsChoice = Choice.SCISSORS;
-            }
-            else if(playersChoice == Choice.PAPER){
-                compsChoice = Choice.ROCK;
-            }
-            else{
-                compsChoice = Choice.PAPER;
-            }
-        }
-
     }
 
     public void compareChoices(){
@@ -223,49 +236,127 @@ public class RPSActivity extends Activity {
                 ties ++;
             }
             else if(playersChoice==Choice.PAPER){
-                result.setText("You Win!");
+                result.setText("You Covered!");
                 wins ++;
             }
-            else{
-                result.setText("You Lose!");
+            else if(playersChoice == Choice.SCISSORS){
+                result.setText("You got Crushed!");
                 losses ++;
+            }
+            else if(playersChoice == Choice.LIZARD){
+                result.setText("You got Crushed!");
+                losses ++;
+            }
+            else {
+                result.setText("You Vaporized!");
+                wins ++;
             }
         }
         else if(compsChoice==Choice.PAPER){
             if(playersChoice==Choice.ROCK){
-                result.setText("You Lose!");
+                result.setText("You got Covered!");
                 losses ++;
             }
             else if(playersChoice==Choice.PAPER){
                 result.setText("Its a tie!");
                 ties ++;
             }
-            else{
-                result.setText("You Win!");
+            else if(playersChoice == Choice.SCISSORS){
+                result.setText("You Cut!");
                 wins++;
+            }
+            else if(playersChoice == Choice.LIZARD){
+                result.setText("You Ate!");
+                wins ++;
+            }
+            else {
+                result.setText("You got Disproved!");
+                losses ++;
+            }
+        }
+        else if (compsChoice == Choice.SCISSORS){
+            if(playersChoice==Choice.ROCK){
+                result.setText("You Crushed!");
+                wins++;
+            }
+            else if(playersChoice==Choice.PAPER){
+                result.setText("You got Cut!");
+                losses++;
+            }
+            else if(playersChoice == Choice.SCISSORS){
+                result.setText("Its a tie!");
+                ties ++;
+            }
+            else if(playersChoice == Choice.LIZARD){
+                result.setText("You got decapitated!");
+                losses ++;
+            }
+            else {
+                result.setText("You Smashed!");
+                wins ++;
+            }
+        }
+        else if (compsChoice == Choice.LIZARD){
+            if(playersChoice==Choice.ROCK){
+                result.setText("You Crushed!");
+                wins++;
+            }
+            else if(playersChoice==Choice.PAPER){
+                result.setText("You got Eaten!");
+                losses++;
+            }
+            else if(playersChoice == Choice.SCISSORS){
+                result.setText("You Decapitated!");
+                wins ++;
+            }
+            else if(playersChoice == Choice.LIZARD){
+                result.setText("Its a Tie!");
+                ties ++;
+            }
+            else {
+                result.setText("You got Poisoned!");
+                losses ++;
             }
         }
         else{
             if(playersChoice==Choice.ROCK){
-                result.setText("You Win!");
-                wins++;
-            }
-            else if(playersChoice==Choice.PAPER){
-                result.setText("You Lose!");
+                result.setText("You got Vaporized!");
                 losses++;
             }
-            else{
-                result.setText("Its a tie!");
+            else if(playersChoice==Choice.PAPER){
+                result.setText("You Disproved!");
+                wins++;
+            }
+            else if(playersChoice == Choice.SCISSORS){
+                result.setText("You got Smashed!");
+                losses ++;
+            }
+            else if(playersChoice == Choice.LIZARD){
+                result.setText("You Poisoned!");
+                wins ++;
+            }
+            else {
+                result.setText("Its a Tie!");
                 ties ++;
             }
         }
         winsText.setText(wins+"");
         lossText.setText(losses+"");
         tieText.setText(ties+"");
-        if(losses == 10){
+        if(losses == 20){
+            rock.setEnabled(false);
+            paper.setEnabled(false);
+            scissors.setEnabled(false);
+            lizard.setEnabled(false);
+            spock.setEnabled(false);
             lostDialog.show();
         }
-        if(wins == 10){
+        if(wins == 20){
+            rock.setEnabled(false);
+            paper.setEnabled(false);
+            scissors.setEnabled(false);
+            lizard.setEnabled(false);
+            spock.setEnabled(false);
             wonDialog.show();
 
         }
@@ -274,8 +365,60 @@ public class RPSActivity extends Activity {
 
     public void settingsClicked(View view){
         Intent intent = new Intent(this, settingsActivity.class);
+        intent.putExtra("bgColor", bgColor);
+        startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
+    public void reset(){
+        wins = 0;
+        losses = 0;
+        ties = 0;
+        winsText.setText(wins+"");
+        lossText.setText(losses+"");
+        tieText.setText(ties+"");
+        playerChoice.setBackground(null);
+        compChoice.setBackground(null);
+    }
+
+    public void alert(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(RPSActivity.this);
+
+        lostDialog = builder.setTitle("Gosh").setMessage("You lost 20 times already?!").setNeutralButton("Try Again", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                reset();
+                rock.setEnabled(true);
+                paper.setEnabled(true);
+                scissors.setEnabled(true);
+                lizard.setEnabled(true);
+                spock.setEnabled(true);
+                dialogInterface.dismiss();
+            }
+        }).create();
+
+        builder = new AlertDialog.Builder(RPSActivity.this);
+
+        wonDialog = builder.setTitle("Congratulations").setMessage("You won 20 times!").setNeutralButton("Play Again", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                reset();
+                rock.setEnabled(true);
+                paper.setEnabled(true);
+                scissors.setEnabled(true);
+                lizard.setEnabled(true);
+                spock.setEnabled(true);
+                dialogInterface.dismiss();
+            }
+        }).create();
+    }
+
+    public void goHome(View view){
+        Intent intent = new Intent(this, titlePage.class);
+        intent.putExtra("bgColor", bgColor);
         startActivity(intent);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
 }
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/playerInfo">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="IGN"
+        android:id="@+id/ign"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/photo"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="48dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Name"
+        android:id="@+id/Name"
+        android:layout_below="@+id/ign"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@id/ign"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Position"
+        android:id="@+id/Position"
+        android:layout_below="@+id/Name"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@+id/Name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Team"
+        android:id="@+id/Team"
+        android:layout_below="@+id/Position"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@+id/Position" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Average KDA:"
+        android:id="@+id/avgKDA"
+        android:layout_toRightOf="@id/photo"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/Team"
+        android:layout_marginRight="70dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Average Gold per Minute:"
+        android:id="@+id/avgGPM"
+        android:layout_alignStart="@+id/avgKDA"
+        android:layout_below="@+id/avgKDA"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="70dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Average Total Gold:"
+        android:id="@+id/avgTG"
+        android:layout_below="@+id/avgGPM"
+        android:layout_alignStart="@+id/avgGPM"
+        android:layout_marginTop="60dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="KDA Value"
+        android:id="@+id/KDAValue"
+        android:layout_alignTop="@+id/avgKDA"
+        android:layout_alignStart="@+id/GPMValue"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="GPM Value"
+        android:id="@+id/GPMValue"
+        android:layout_alignTop="@+id/avgGPM"
+        android:layout_toRightOf="@id/avgGPM"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="TG Value"
+        android:id="@+id/TGValue"
+        android:layout_alignTop="@+id/avgTG"
+        android:layout_alignStart="@+id/GPMValue"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Biography"
+        android:id="@+id/BIOTitle"
+        android:layout_below="@+id/avgTG"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"/>
+
+    <ScrollView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/bio"
+        android:layout_below="@+id/BIOTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/photo"
+        android:layout_alignTop="@+id/ign"
+        android:layout_marginLeft="50dp"
+        />
+
+
+</RelativeLayout>

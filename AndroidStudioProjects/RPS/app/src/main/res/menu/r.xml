@@ -5,4 +5,16 @@
         android:title="@string/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    <item android:id="@+id/home_page"
+        android:title="Home"
+        android:orderInCategory="0"
+        android:showAsAction="never" />
+    <item android:id="@+id/rps"
+        android:title="RPSLS"
+        android:orderInCategory="50"
+        android:showAsAction="never" />
+    <item android:id="@+id/rules"
+        android:title="Rules"
+        android:orderInCategory="50"
+        android:showAsAction="never" />
 </menu>

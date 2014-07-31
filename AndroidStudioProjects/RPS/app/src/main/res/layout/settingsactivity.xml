@@ -9,43 +9,148 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100px"
-        android:layout_centerHorizontal="true"
-        android:text="Choose Difficulty"
+        android:text="Background Color"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/difficult"
         />
     <Button
-        android:layout_width="200px"
+        android:layout_width="100px"
         android:layout_height="100px"
         android:layout_marginTop="200px"
-        android:layout_marginLeft="500px"
-        android:text="Hard"
-        android:id="@+id/hardButton"/>
+        android:layout_toRightOf="@+id/blue"
+        android:layout_marginLeft="10dp"
+        android:text="Red"
+        android:onClick="changeBg"
+        android:id="@+id/red"/>
+    <ImageView
+        android:layout_width="106px"
+        android:layout_height="106px"
+        android:layout_toRightOf="@+id/blue"
+        android:layout_marginLeft="7.5dp"
+        android:layout_marginTop="197px"
+        android:id="@+id/black2"
+        />
     <Button
-        android:layout_width="200px"
+        android:layout_width="100px"
         android:layout_height="100px"
         android:layout_marginTop="200px"
-        android:layout_centerHorizontal="true"
-        android:text="Medium"
-        android:id="@+id/medButton"/>
+        android:layout_marginLeft="4dp"
+        android:text="Blue"
+        android:onClick="changeBg"
+        android:id="@+id/blue"/>
+    <ImageView
+        android:layout_width="106px"
+        android:layout_height="106px"
+        android:layout_marginTop="197px"
+        android:layout_marginLeft="1.5dp"
+        android:id="@+id/black1"
+        />
     <Button
-        android:layout_width="200px"
+        android:layout_width="100px"
         android:layout_height="100px"
         android:layout_marginTop="200px"
-        android:layout_marginLeft="100px"
-        android:text="Easy"
-        android:id="@+id/easyButton"/>
+        android:layout_toRightOf="@+id/red"
+        android:layout_marginLeft="10dp"
+        android:text="Green"
+        android:onClick="changeBg"
+        android:id="@+id/green"/>
+    <ImageView
+        android:layout_width="106px"
+        android:layout_height="106px"
+        android:layout_toRightOf="@+id/red"
+        android:layout_marginLeft="7.5dp"
+        android:layout_marginTop="197px"
+        android:id="@+id/black3"
+        />
+    <Button
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_marginTop="200px"
+        android:layout_toRightOf="@+id/green"
+        android:layout_marginLeft="10dp"
+        android:text="White"
+        android:onClick="changeBg"
+        android:id="@+id/white"/>
+    <ImageView
+        android:layout_width="106px"
+        android:layout_height="106px"
+        android:layout_toRightOf="@+id/green"
+        android:layout_marginLeft="7.5dp"
+        android:layout_marginTop="197px"
+        android:id="@+id/black4"
+        />
+    <Button
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_marginTop="200px"
+        android:layout_toRightOf="@+id/white"
+        android:layout_marginLeft="10dp"
+        android:text="Grey"
+        android:onClick="changeBg"
+        android:id="@+id/grey"/>
+    <ImageView
+        android:layout_width="106px"
+        android:layout_height="106px"
+        android:layout_marginTop="197px"
+        android:layout_toRightOf="@+id/white"
+        android:layout_marginLeft="7.5dp"
+        android:id="@+id/black5"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="100px"
+        android:layout_marginTop="200px"
+        android:layout_toRightOf="@+id/grey"
+        android:layout_marginLeft="10dp"
+        android:text="Purple"
+        android:onClick="changeBg"
+        android:id="@+id/purple"/>
+    <ImageView
+        android:layout_width="108px"
+        android:layout_height="106px"
+        android:layout_marginTop="197px"
+        android:layout_toRightOf="@+id/grey"
+        android:layout_marginLeft="7.5dp"
+        android:id="@+id/black6"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="100px"
+        android:layout_marginTop="200px"
+        android:layout_toRightOf="@+id/purple"
+        android:layout_marginLeft="10dp"
+        android:text="Orange"
+        android:onClick="changeBg"
+        android:id="@+id/orange"/>
+    <ImageView
+        android:layout_width="117px"
+        android:layout_height="106px"
+        android:layout_marginTop="197px"
+        android:layout_toRightOf="@+id/purple"
+        android:layout_marginLeft="7.5dp"
+        android:id="@+id/black7"
+        />
 
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450px"
-        android:layout_centerHorizontal="true"
         android:text="Play"
         android:id="@+id/goBack"
         android:onClick="gottaGoBack"
-        />
-    
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="87dp" />
+
+    <Switch
+        android:layout_width="400px"
+        android:layout_height="200px"
+        android:text="Sound"
+        android:id="@+id/switch1"
+        android:layout_marginBottom="202dp"
+        android:layout_above="@+id/goBack"
+        android:layout_alignParentStart="true"
+        android:checked="false"/>
 
 
 </RelativeLayout>

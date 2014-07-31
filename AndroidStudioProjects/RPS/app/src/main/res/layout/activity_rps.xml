@@ -10,97 +10,136 @@
     android:id="@+id/RPSLayout">
 
     <TextView
-        android:text="Welcome to Rock Paper Scissors"
+        android:text="Rock Paper Scissors Lizard Spock"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
         android:id="@+id/textView2" />
 
     <ImageView
         android:layout_width="200px"
         android:layout_height="200px"
-        android:layout_marginLeft="100px"
-        android:layout_marginTop="100px"
+        android:layout_alignLeft="@+id/playerChoiceText"
+        android:layout_below="@+id/playerChoiceText"
+        android:layout_marginTop="10dp"
         android:id="@+id/playerChoice"
         />
     <ImageView
         android:layout_width="200px"
         android:layout_height="200px"
-        android:layout_marginLeft="500px"
-        android:layout_marginTop="100px"
+        android:layout_alignEnd="@+id/androidChoice"
+        android:layout_below="@+id/androidChoice"
+        android:layout_marginTop="10dp"
         android:id="@+id/compChoice"
         />
     <TextView
-        android:layout_width="200px"
-        android:layout_height="50px"
-        android:layout_marginLeft="100px"
-        android:layout_marginTop="50px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="10dp"
         android:text="Player's Choice"
-        android:id="@+id/textView3" />
+        android:textAlignment="center"
+        android:id="@+id/playerChoiceText" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="50px"
-        android:layout_marginLeft="500px"
-        android:layout_marginTop="50px"
-        android:text="Android's Choice"/>
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:text="Android's Choice"
+        android:id="@+id/androidChoice"/>
 
     <ImageButton
-        android:layout_width="200px"
-        android:layout_height="200px"
-        android:layout_marginLeft="275px"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:layout_toRightOf="@+id/rock"
         android:layout_marginTop="400px"
         android:id="@+id/paper"
         />
     <ImageButton
-        android:layout_width="200px"
-        android:layout_height="200px"
+        android:layout_width="150px"
+        android:layout_height="150px"
         android:layout_marginTop="400px"
-        android:layout_marginLeft="25px"
         android:id="@+id/rock"
         />
     <ImageButton
-        android:layout_width="200px"
-        android:layout_height="200px"
-        android:layout_marginLeft="525px"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:layout_toRightOf="@+id/paper"
         android:layout_marginTop="400px"
         android:id="@+id/scissor"
         />
+    <ImageButton
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:layout_toRightOf="@+id/scissor"
+        android:layout_marginTop="400px"
+        android:id="@+id/lizard"
+        />
+    <ImageButton
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:layout_toRightOf="@+id/lizard"
+        android:layout_marginTop="400px"
+        android:id="@+id/spock"
+        />
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="50px"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="650px"
+        android:layout_marginTop="700px"
         android:text="Result"
         android:id="@+id/result"
         />
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="100px"
-        android:layout_marginTop="850px"
-        android:text="Change Difficulty"
-        android:onClick="settingsClicked"
-        android:id="@+id/settings"
-        />
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="100px"-->
+        <!--android:layout_marginTop="850px"-->
+        <!--android:text="Settings"-->
+        <!--android:onClick="settingsClicked"-->
+        <!--android:id="@+id/settings"-->
+        <!--android:layout_alignRight="@id/androidChoice"-->
+        <!--/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="100px"-->
+        <!--android:layout_marginTop="850px"-->
+        <!--android:layout_alignLeft="@+id/playerChoiceText"-->
+        <!--android:text="Go to Home Page"-->
+        <!--android:onClick="goHome"-->
+        <!--android:id="@+id/homeScreen"-->
+        <!--/>-->
 
     <TextView
-        android:layout_width="100px"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wins"
-        android:id="@+id/textView"
+        android:id="@+id/wintext"
         android:layout_below="@+id/result"
-        android:layout_marginLeft="50px"/>
+        android:layout_marginTop="50dp"
+        android:layout_toLeftOf="@+id/wins"
+        android:layout_marginRight="10dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:id="@+id/wins"
-        android:layout_alignTop="@+id/textView"
-        android:layout_marginLeft="150px"/>
+        android:layout_alignTop="@+id/wintext"
+        android:layout_toLeftOf="@+id/textView5"
+        android:layout_marginRight="90dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -108,7 +147,8 @@
         android:text="Losses"
         android:id="@+id/textView5"
         android:layout_below="@+id/result"
-        android:layout_toEndOf="@+id/playerChoice" />
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/> />
 
     <TextView
         android:layout_width="wrap_content"
@@ -116,7 +156,9 @@
         android:text="0"
         android:id="@+id/losses"
         android:layout_below="@+id/result"
-        android:layout_toEndOf="@+id/result" />
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_marginLeft="10dp"/>/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -124,14 +166,18 @@
         android:text="Ties:"
         android:id="@+id/textView7"
         android:layout_below="@+id/result"
-        android:layout_alignStart="@+id/scissor" />
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@id/textView5"
+        android:layout_marginLeft="100dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:id="@+id/ties"
-        android:layout_marginTop="700px"
-        android:layout_marginLeft="600px"/>
+        android:layout_below="@+id/result"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@+id/textView7"
+        android:layout_marginLeft="10dp"/>
 
 </RelativeLayout>
