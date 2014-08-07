@@ -12,37 +12,38 @@
         android:id="@+id/ign"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/photo"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="20dp"
+        android:textSize="40dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text=""
         android:id="@+id/Name"
         android:layout_below="@+id/ign"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_alignStart="@id/ign"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text=""
         android:id="@+id/Position"
         android:layout_below="@+id/Name"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_alignStart="@+id/Name" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text=""
         android:id="@+id/Team"
         android:layout_below="@+id/Position"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_alignStart="@+id/Position" />
 
     <TextView
@@ -51,9 +52,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text=""
         android:id="@+id/avgKDA"
-        android:layout_alignStart="@id/photo"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/photo" />
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/photo"
+        android:layout_marginLeft="150dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +64,7 @@
         android:id="@+id/avgGPM"
         android:layout_alignStart="@+id/avgKDA"
         android:layout_below="@+id/avgKDA"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="70dp"/>
 
     <TextView
@@ -74,7 +75,7 @@
         android:id="@+id/avgTG"
         android:layout_below="@+id/avgGPM"
         android:layout_alignStart="@+id/avgGPM"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="50dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -111,10 +112,12 @@
         android:id="@+id/BIOTitle"
         android:layout_below="@+id/avgTG"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"/>
+        android:textAppearance="?android:attr/textAppearanceMedium"
+
+        android:layout_marginTop="50dp"/>
 
     <ScrollView
-        android:layout_width="250dp"
+        android:layout_width="450dp"
         android:layout_height="wrap_content"
         android:id="@+id/bio"
         android:layout_below="@+id/BIOTitle"
@@ -124,21 +127,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/BIOText"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+
             android:text=""
             android:layout_centerHorizontal="true"
             />
         </ScrollView>
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:id="@+id/photo"
         android:layout_marginLeft="30dp"
         android:layout_alignTop="@id/ign"/>
-
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:id="@+id/bg"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>

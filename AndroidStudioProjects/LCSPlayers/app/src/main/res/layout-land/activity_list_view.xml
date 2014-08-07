@@ -5,7 +5,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="400dp"
         android:id="@+id/imageView"
         android:background="@drawable/aa"
         android:layout_centerVertical="true"
@@ -14,7 +14,7 @@
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/list"
-    android:layout_width="250dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
     android:divider="#ffe2e2e2"

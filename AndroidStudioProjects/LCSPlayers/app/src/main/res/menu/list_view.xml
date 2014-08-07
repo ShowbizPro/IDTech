@@ -1,8 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ListView" >
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    <item android:id="@+id/NA"
+        android:title="NA"
         android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item android:id="@+id/EU"
+    android:title="EU"
+    android:orderInCategory="150"
+    android:showAsAction="never" />
+    <item android:id="@+id/refresh"
+        android:title="Refresh Information"
+        android:orderInCategory="150"
         android:showAsAction="never" />
 </menu>

@@ -1,11 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="1000dp"
     android:layout_height="wrap_content"
     android:background="@android:color/black">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:background="@drawable/aa"
         android:layout_centerVertical="true"
@@ -14,13 +14,13 @@
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/list"
-    android:layout_width="250dp"
+    android:layout_width="600dp"
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
     android:divider="#ffe2e2e2"
         android:layout_alignParentBottom="true"
         android:clickable="false"
-        android:dividerHeight="0.1dp"
+        android:dividerHeight="1dp"
         android:layout_centerInParent="true">\
 </ListView>
 
